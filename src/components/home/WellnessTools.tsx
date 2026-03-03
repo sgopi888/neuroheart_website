@@ -6,23 +6,23 @@ import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChi
 const tools = [
   {
     icon: "🧘",
-    title: "Stress Reduction Techniques",
-    desc: "NeuroHeart.ai generates guided meditations, breathing exercises, and stress management strategies scientifically designed to lower cortisol and activate your parasympathetic nervous system.",
+    title: "HRV-Guided Stress Reduction",
+    desc: "AI generates personalized breathing exercises and meditations calibrated to your real-time HRV — scientifically designed to lower cortisol and activate your parasympathetic nervous system.",
   },
   {
     icon: "🫂",
     title: "Emotional Regulation",
-    desc: "Identify, understand, and manage your emotions effectively. Build lasting resilience through personalized cognitive and somatic strategies.",
+    desc: "Identify, understand, and manage your emotions effectively. Build lasting resilience through AI-guided cognitive and somatic strategies informed by your biometric state.",
   },
   {
     icon: "🎯",
-    title: "Focus Enhancement",
-    desc: "Personalized focus techniques and a research-backed, award-winning mindfulness methodology to sharpen attention and sustain deep work sessions.",
+    title: "Biometric Focus Enhancement",
+    desc: "HRV-optimized focus sessions that adapt to your nervous system state. Sharpen attention and sustain deep work with biofeedback-informed mindfulness techniques.",
   },
   {
     icon: "⚡",
     title: "Productivity Optimization",
-    desc: "AI-driven task prioritization, time management guidance, and energy-aware scheduling aligned with your biometric rhythms for maximum daily output.",
+    desc: "Energy-aware scheduling aligned with your HRV circadian rhythms. Know your peak performance windows and plan high-stakes work when your body is ready.",
   },
 ];
 

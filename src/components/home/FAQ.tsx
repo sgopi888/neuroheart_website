@@ -4,36 +4,36 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "What is NeuroHeart AI?",
-    a: "NeuroHeart AI is an empathetic AI companion designed specifically for mental wellness. It combines conversational AI with mood tracking, guided exercises, and clinical-grade reporting to help you understand and improve your emotional health — available as a web app, desktop app, or mobile app.",
+    q: "What is NeuroHeart.AI?",
+    a: "A stress intelligence app for iPhone and Apple Watch. It measures your stress through real-time HRV biofeedback and resolves it with AI-generated meditation and live music — all personalized to your physiology.",
   },
   {
-    q: "Is NeuroHeart AI a replacement for therapy?",
-    a: "No. NeuroHeart AI is a wellness companion, not a therapist or medical device. It's designed to support your mental health between sessions, help you build healthy habits, and provide tools that complement professional care. We always encourage working with a licensed therapist for clinical needs.",
+    q: "How does it measure stress?",
+    a: "Your Apple Watch continuously monitors heart rate variability (HRV). NeuroHeart analyzes metrics like RMSSD, SDNN, and LF/HF ratio to quantify your stress level in real time — turning raw biometric data into actionable stress scores.",
   },
   {
-    q: "Is my data safe?",
-    a: "Absolutely. NeuroHeart is privacy-first by design. In local mode, all data stays on your device — nothing is sent anywhere. In cloud mode, everything is end-to-end encrypted. We never sell your data, never train AI on your conversations, and you can delete everything at any time.",
+    q: "Do I need an Apple Watch?",
+    a: "Yes, for the full experience. The Apple Watch provides the HRV biofeedback that powers personalized stress measurement and real-time interventions. iPhone is required to run the app.",
   },
   {
-    q: "What AI models does it use?",
-    a: "NeuroHeart supports multiple AI backends including Claude (Anthropic), GPT (OpenAI), Gemini (Google), and our own fine-tuned wellness model. You can switch between them or use our default model which requires no API key setup.",
+    q: "Is this backed by real research?",
+    a: "Yes. NeuroHeart is built on 5 years of peer-reviewed research published at IEEE, FIE, and ASEE conferences, demonstrating 30–40% reduction in perceived stress through our biofeedback-guided approach.",
   },
   {
-    q: "Is it free?",
-    a: "NeuroHeart has a generous free tier that includes daily conversations, mood tracking, and basic exercises. Premium plans unlock unlimited sessions, advanced analytics, therapist reports, and priority access to new skills. If you bring your own API key, the core features are completely free.",
+    q: "How much does it cost?",
+    a: "NeuroHeart is $10/month. Compare that to Calm ($15), Headspace ($13), Whoop ($30), or Apollo Neuro ($40) — and none of them combine HRV biofeedback with AI-generated meditation and live music.",
   },
   {
-    q: "What platforms are supported?",
-    a: "NeuroHeart is available as a web app (works in any browser), a native macOS app (live now), with Windows, iOS, and Android apps coming soon. Cloud mode works on any device with a browser.",
+    q: "Is my health data safe?",
+    a: "Absolutely. Health data syncs via encrypted HTTPS to our secure servers. We never sell your data, never share it with third parties, and never use it to train AI models. Sign in with Apple for maximum privacy.",
   },
   {
-    q: "Can I share my data with my therapist?",
-    a: "Yes! NeuroHeart can generate PDF wellness summaries that include your mood trends, journal highlights, and exercise completion data. You control exactly what's included before sharing. Many therapists find these reports incredibly valuable for session preparation.",
+    q: "What makes this different from Calm or Headspace?",
+    a: "Calm and Headspace are static content libraries — the same meditations for everyone. NeuroHeart generates everything live — meditation scripts, narration, and music — personalized to your current HRV and stress state in real time.",
   },
   {
-    q: "What happens if I'm in crisis?",
-    a: "NeuroHeart has built-in crisis detection. If it senses you may be in distress, it will gently offer to connect you with crisis resources including the 988 Suicide & Crisis Lifeline, Crisis Text Line, and your pre-configured emergency contacts. Your safety always comes first.",
+    q: "Is Android supported?",
+    a: "Not yet. NeuroHeart currently requires iPhone + Apple Watch. Android and other wearable support are on our roadmap — join the beta to stay updated.",
   },
 ];
 

@@ -5,49 +5,34 @@ import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChi
 
 const features = [
   {
-    icon: "💬",
-    title: "Empathetic Conversations",
-    desc: "Talk through anything. NeuroHeart listens without judgment and responds with evidence-based emotional support.",
-  },
-  {
     icon: "📊",
-    title: "Mood Tracking & Insights",
-    desc: "Log how you feel daily. NeuroHeart spots patterns in your emotions, sleep, and energy to surface actionable insights.",
+    title: "Real-Time Stress Measurement",
+    desc: "Your Apple Watch continuously streams HRV data. NeuroHeart converts it into a live stress score you can actually see and act on.",
   },
   {
     icon: "🧘",
-    title: "Guided Exercises",
-    desc: "Breathing techniques, mindfulness sessions, CBT journaling prompts, and grounding exercises — all personalized to you.",
+    title: "AI-Generated Meditation",
+    desc: "Every meditation is generated live — scripts, narration, and background music composed for your exact stress state. Nothing is pre-recorded.",
   },
   {
-    icon: "🌙",
-    title: "Sleep & Recovery",
-    desc: "Wind-down routines, sleep stories, and smart alarms that adapt to your circadian rhythm and stress levels.",
+    icon: "🎵",
+    title: "Live Music Generation",
+    desc: "AI composes calming soundscapes in real time, adapting tempo and tone to your heart rate variability for maximum relaxation.",
+  },
+  {
+    icon: "💓",
+    title: "HRV Biofeedback",
+    desc: "See your RMSSD, SDNN, and LF/HF ratio in real time. Watch your nervous system shift from fight-or-flight to rest-and-digest.",
+  },
+  {
+    icon: "📈",
+    title: "Stress Pattern Intelligence",
+    desc: "Daily, weekly, and monthly HRV trends reveal your most stressful hours, worst days, and circadian patterns — so you can plan ahead.",
   },
   {
     icon: "🔔",
-    title: "Smart Check-ins",
-    desc: "NeuroHeart reaches out at the right moments — not randomly. Gentle nudges based on your patterns and preferences.",
-  },
-  {
-    icon: "📋",
-    title: "Therapist Reports",
-    desc: "Generate shareable wellness summaries for your therapist or doctor. Bridge the gap between sessions effortlessly.",
-  },
-  {
-    icon: "🧬",
-    title: "Adaptive AI Models",
-    desc: "Choose from GPT, Claude, Gemini, and specialized wellness models. Switch freely based on what feels right.",
-  },
-  {
-    icon: "🤝",
-    title: "Crisis Support Routing",
-    desc: "When things get heavy, NeuroHeart connects you to real human help — crisis lines, local therapists, and emergency contacts.",
-  },
-  {
-    icon: "📱",
-    title: "Cross-Platform Sync",
-    desc: "Start on your phone, continue on desktop. Your journal, mood history, and progress are always in sync.",
+    title: "Smart Interventions",
+    desc: "NeuroHeart detects rising stress from your biometrics and proactively suggests breathing exercises or micro-meditations at the right moment.",
   },
 ];
 
@@ -63,8 +48,8 @@ export default function FeaturesGrid() {
             What NeuroHeart AI Can Do
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-[17px] leading-relaxed text-text-secondary">
-            A complete mental wellness toolkit powered by empathetic AI that
-            actually understands you.
+            The only app that measures stress physiologically, understands it
+            emotionally, and resolves it intelligently.
           </p>
         </FadeIn>
 

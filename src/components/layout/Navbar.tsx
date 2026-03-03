@@ -63,7 +63,7 @@ export default function Navbar() {
             href="#get-started"
             className="hidden rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_var(--accent-glow)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-light hover:shadow-[0_0_30px_var(--accent-glow)] md:inline-flex"
           >
-            Get Started Free
+            Download App
           </a>
 
           {/* Mobile hamburger */}
@@ -104,7 +104,7 @@ export default function Navbar() {
             className="rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_20px_var(--accent-glow)]"
             onClick={() => setMobileOpen(false)}
           >
-            Get Started Free
+            Download App
           </a>
         </div>
       )}

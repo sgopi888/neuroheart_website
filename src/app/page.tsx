@@ -11,10 +11,6 @@ import Comparison from "@/components/home/Comparison";
 import WellnessTools from "@/components/home/WellnessTools";
 import AISolutions from "@/components/home/AISolutions";
 import DailyUseCases from "@/components/home/DailyUseCases";
-import Testimonials from "@/components/home/Testimonials";
-import SetupCards from "@/components/home/SetupCards";
-import Integrations from "@/components/home/Integrations";
-import Skills from "@/components/home/Skills";
 import FounderVision from "@/components/home/FounderVision";
 import FAQ from "@/components/home/FAQ";
 import FinalCTA from "@/components/home/FinalCTA";
@@ -34,10 +30,6 @@ export default function Home() {
       <WellnessTools />
       <AISolutions />
       <DailyUseCases />
-      <Testimonials />
-      <SetupCards />
-      <Integrations />
-      <Skills />
       <FounderVision />
       <FAQ />
       <FinalCTA />

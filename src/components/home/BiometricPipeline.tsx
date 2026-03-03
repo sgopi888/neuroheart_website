@@ -5,35 +5,35 @@ import FadeIn from "@/components/animations/FadeIn";
 const steps = [
   {
     step: 1,
-    icon: "📡",
-    title: "Biometric Data Collection",
-    desc: "Wearable devices and smartphone PPG sensors continuously capture heart rate, HRV, skin temperature, and activity data in real time.",
+    icon: "⌚",
+    title: "Apple Watch Data Sync",
+    desc: "Your Apple Watch continuously captures heart rate and HRV data via HealthKit, syncing to NeuroHeart in the background with zero manual effort.",
     details: [
-      "Gather real-time data using Apple Watch, Fitbit, Garmin, and Oura Ring",
-      "Use PPG via smartphone cameras for pulse measurement",
-      "Sync seamlessly across devices with zero manual input",
+      "Real-time HR and HRV from Apple Watch via HealthKit",
+      "Background observer queries — no manual sync needed",
+      "Incremental fetch with smart cursors — no duplicates",
     ],
   },
   {
     step: 2,
     icon: "🧠",
-    title: "LLM Processing",
-    desc: "Advanced language models analyze your biometric data alongside mood entries and conversation history to generate personalized mental health insights.",
+    title: "HRV Analytics Engine",
+    desc: "Raw heart rate data is converted into precise HRV metrics through our analytics pipeline, revealing your autonomic nervous system state in real time.",
     details: [
-      "Analyze biometric data for personalized insights and actionable guidance",
-      "Identify stress patterns, emotional states, and productivity trends",
-      "Cross-reference with your journal entries and conversation context",
+      "BPM to IBI conversion for precise HRV calculation",
+      "Feature extraction: RMSSD, SDNN, LF/HF ratio, SD1/SD2",
+      "Time-windowed analysis: hourly, daily, weekly, monthly",
     ],
   },
   {
     step: 3,
     icon: "🎯",
-    title: "Actionable AI Guidance",
-    desc: "Receive tailored schedules, guided meditations, breathing exercises, and wellness recommendations uniquely calibrated to your physiological state.",
+    title: "Personalized AI Response",
+    desc: "AI generates meditation sessions, calming music, and stress interventions uniquely calibrated to your current physiological state.",
     details: [
-      "Suggest optimal daily schedules to enhance focus and productivity",
-      "Produce guided meditations and mindfulness practices based on data trends",
-      "Adapt recommendations in real time as your biometrics change",
+      "Live-generated meditation calibrated to your stress level",
+      "AI-composed music adapting to your HRV in real time",
+      "Circadian pattern insights: best/worst hours, most stressful days",
     ],
   },
 ];
@@ -50,12 +50,12 @@ export default function BiometricPipeline() {
             🔬 Data Pipeline
           </span>
           <h2 className="text-[clamp(30px,4vw,48px)] font-extrabold leading-[1.1] tracking-[-1px]">
-            Biometric AI Insights for{" "}
-            <span className="gradient-text">Mindful Living</span>
+            From Apple Watch to{" "}
+            <span className="gradient-text">AI Insight</span>
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-[17px] leading-relaxed text-text-secondary">
-            From raw biometric signals to personalized wellness guidance in three
-            seamless steps.
+            Your stress data flows from wrist to wisdom in three seamless
+            steps.
           </p>
         </FadeIn>
 
@@ -68,9 +68,9 @@ export default function BiometricPipeline() {
                 <div className="mb-4 text-5xl">🔬</div>
                 <h3 className="text-xl font-extrabold">How Your Data Flows</h3>
                 <p className="mt-2 text-sm leading-relaxed text-text-secondary">
-                  NeuroHeart&apos;s three-stage pipeline transforms raw
-                  physiological signals into actionable wellness guidance —
-                  all in real time.
+                  From Apple Watch to AI insight — your HRV data is
+                  captured, analyzed, and transformed into personalized
+                  stress interventions in real time.
                 </p>
                 {/* Progress dots */}
                 <div className="mt-6 flex items-center gap-2">

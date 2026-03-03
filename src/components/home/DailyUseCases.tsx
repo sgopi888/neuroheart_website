@@ -7,26 +7,26 @@ const useCases = [
   {
     icon: "🌅",
     time: "Morning",
-    title: "Cortisol Level Awareness",
-    desc: "Start your day with biometric insights. NeuroHeart analyzes your morning HRV and cortisol indicators to guide meditation for balanced energy.",
+    title: "HRV Recovery Check",
+    desc: "Check overnight HRV recovery from your Apple Watch. NeuroHeart assesses your readiness score and suggests a calibrated morning meditation.",
   },
   {
     icon: "☀️",
     time: "Midday",
-    title: "Stress Recovery Routines",
-    desc: "Combat midday stress with targeted breathing exercises and micro-meditations calibrated to handle high-pressure tasks effectively.",
+    title: "Real-Time Stress Detection",
+    desc: "Real-time stress detection triggers micro-interventions. A 3-minute HRV-guided breathing session between meetings to reset your nervous system.",
   },
   {
     icon: "🌙",
     time: "Evening",
-    title: "Biofeedback Reflection",
-    desc: "Wind down with reflection through biofeedback analysis, followed by guided meditations designed for restorative sleep.",
+    title: "Biofeedback Wind-Down",
+    desc: "Review your daily stress curve. Wind down with AI-generated sleep music composed from your biometric trends for deep, restorative rest.",
   },
   {
     icon: "🏖️",
     time: "Weekend",
-    title: "HRV Trend Analysis",
-    desc: "Review your weekly HRV trends to plan relaxation or productivity bursts. Use data-driven insights for the week ahead.",
+    title: "Weekly HRV Patterns",
+    desc: "Analyze weekly HRV patterns. See your most stressful days, best recovery periods, and plan the week ahead with data-driven insights.",
   },
 ];
 

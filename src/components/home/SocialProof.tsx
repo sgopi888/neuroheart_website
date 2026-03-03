@@ -3,10 +3,10 @@
 import CountUp from "@/components/animations/CountUp";
 
 const stats = [
-  { end: 3, decimals: 0, suffix: "+", label: "AI Models Supported" },
-  { end: 4, decimals: 0, suffix: "+", label: "Wearable Integrations" },
-  { end: 30, decimals: 0, suffix: "+", label: "Connected Tools" },
-  { end: 100, decimals: 0, suffix: "%", label: "Privacy-First Design" },
+  { end: 5, decimals: 0, suffix: "", label: "Years of Research" },
+  { end: 40, decimals: 0, suffix: "%", label: "Stress Reduction" },
+  { end: 10, decimals: 0, suffix: "", prefix: "$", label: "Per Month" },
+  { end: 24, decimals: 0, suffix: "/7", label: "Real-Time Monitoring" },
 ];
 
 export default function SocialProof() {

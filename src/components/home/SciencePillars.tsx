@@ -5,19 +5,19 @@ import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChi
 
 const pillars = [
   {
-    icon: "🤖",
-    title: "Generative AI",
-    desc: "Generative AI algorithms process real-time biometric data, providing personalized insights and interventions tailored to your mental state.",
-  },
-  {
-    icon: "📈",
-    title: "Biometric Data Analysis",
-    desc: "NeuroHeart.ai analyzes heart rate variability (HRV) and other biometric data from wearables to assess mental and emotional states.",
-  },
-  {
     icon: "💓",
-    title: "Heart Rate Variability",
-    desc: "HRV metrics serve as indicators of stress levels, emotional regulation, and overall wellbeing — providing the foundation for personalized care.",
+    title: "Real-Time HRV Analysis",
+    desc: "Continuous heart rate variability monitoring from your Apple Watch detects stress before you feel it — measuring RMSSD, SDNN, and sympathetic/parasympathetic balance.",
+  },
+  {
+    icon: "🤖",
+    title: "Generative AI Engine",
+    desc: "AI processes your biometric data in real time, generating personalized meditation scripts, calming music, and stress interventions unique to your current state.",
+  },
+  {
+    icon: "📊",
+    title: "Proven Stress Reduction",
+    desc: "Research published at IEEE, FIE, and ASEE conferences demonstrates 30–40% reduction in perceived stress through our biofeedback-guided approach.",
   },
 ];
 
@@ -30,11 +30,11 @@ export default function SciencePillars() {
             ✦ The Science
           </span>
           <h2 className="text-[clamp(30px,4vw,48px)] font-extrabold leading-[1.1] tracking-[-1px]">
-            Revolutionizing Mental Wellness
+            The Science Behind NeuroHeart
           </h2>
           <p className="mx-auto mt-4 max-w-[600px] text-[17px] leading-relaxed text-text-secondary">
-            NeuroHeart.ai empowers users to manage stress, enhance focus, and
-            build emotional resilience through the power of AI and biometrics.
+            5 years of peer-reviewed research combining HRV biofeedback,
+            generative AI, and clinical stress science.
           </p>
           <span className="mt-3 inline-flex items-center gap-1.5 text-xs text-text-muted">
             📄 Evidence-based research presented at IEEE, FIE, and ASEE conferences

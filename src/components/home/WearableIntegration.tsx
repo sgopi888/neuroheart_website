@@ -3,26 +3,21 @@
 import FadeIn from "@/components/animations/FadeIn";
 import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChildren";
 
-const devices = [
+const dataTypes = [
   {
     icon: "⌚",
-    name: "Apple Watch",
-    desc: "Heart rate, HRV, activity, and sleep data via Apple Health.",
+    name: "Heart Rate",
+    desc: "Continuous BPM monitoring converted to inter-beat intervals for precise HRV calculation.",
   },
   {
-    icon: "🏃",
-    name: "Fitbit",
-    desc: "Continuous heart rate monitoring, sleep stages, and stress scores.",
+    icon: "💓",
+    name: "HRV (SDNN)",
+    desc: "Heart rate variability as the gold standard indicator of autonomic nervous system balance.",
   },
   {
-    icon: "🧭",
-    name: "Garmin",
-    desc: "Advanced HRV, body battery, respiration rate, and pulse ox.",
-  },
-  {
-    icon: "💍",
-    name: "Oura Ring",
-    desc: "Sleep quality, readiness scores, temperature trends, and HRV.",
+    icon: "😴",
+    name: "Sleep & Recovery",
+    desc: "Sleep stages and recovery scores that inform your morning readiness and stress baseline.",
   },
 ];
 
@@ -30,17 +25,17 @@ const pipeline = [
   {
     icon: "📡",
     title: "Collect",
-    desc: "Real-time biometric data from wearables & PPG via smartphone cameras",
+    desc: "Real-time biometric data from Apple Watch via HealthKit",
   },
   {
     icon: "🧠",
     title: "Analyze",
-    desc: "LLM processing for personalized insights and pattern recognition",
+    desc: "HRV analytics engine with RMSSD, SDNN, and LF/HF extraction",
   },
   {
     icon: "🎯",
     title: "Guide",
-    desc: "Actionable wellness recommendations calibrated to your physiology",
+    desc: "AI-generated meditation and music calibrated to your stress state",
   },
 ];
 
@@ -48,29 +43,25 @@ export default function WearableIntegration() {
   return (
     <section className="px-6 py-[120px]" id="wearables">
       <div className="mx-auto max-w-[var(--max-width)]">
-        {/* Bento Grid */}
-        <StaggerChildren className="grid grid-cols-1 gap-5 md:grid-cols-4 md:grid-rows-2">
-          {/* Large hero card — spans 2 cols, 2 rows */}
-          <StaggerItem className="md:col-span-2 md:row-span-2">
-            <div className="flex h-full flex-col justify-between rounded-[var(--radius-lg)] border border-accent/20 bg-bg-card p-8 md:p-10">
-              <div>
-                <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-accent/15 bg-accent/[0.08] px-3.5 py-1.5 text-xs font-bold uppercase tracking-[1.5px] text-accent-light">
-                  ⌚ Wearable Integration
-                </span>
-                <h2 className="mt-4 text-[clamp(26px,3.5vw,40px)] font-extrabold leading-[1.1] tracking-[-1px]">
-                  Seamless Wearable
-                  <br />
-                  <span className="gradient-text">Integration</span>
-                </h2>
-                <p className="mt-4 max-w-[440px] text-[15px] leading-relaxed text-text-secondary">
-                  NeuroHeart.ai utilizes wearable devices, such as smartwatches
-                  and rings, to non-invasively measure heart rate and other vital
-                  signs for real-time wellness insights.
-                </p>
-              </div>
+        <StaggerChildren className="grid grid-cols-1 gap-5 md:grid-cols-3 md:grid-rows-[auto_auto]">
+          {/* Large hero card — spans all 3 cols */}
+          <StaggerItem className="md:col-span-3">
+            <div className="rounded-[var(--radius-lg)] border border-accent/20 bg-bg-card p-8 md:p-10">
+              <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-accent/15 bg-accent/[0.08] px-3.5 py-1.5 text-xs font-bold uppercase tracking-[1.5px] text-accent-light">
+                ⌚ Apple Watch Integration
+              </span>
+              <h2 className="mt-4 text-[clamp(26px,3.5vw,40px)] font-extrabold leading-[1.1] tracking-[-1px]">
+                Built for{" "}
+                <span className="gradient-text">Apple Watch</span>
+              </h2>
+              <p className="mt-4 max-w-[600px] text-[15px] leading-relaxed text-text-secondary">
+                NeuroHeart reads heart rate, HRV, steps, and sleep directly from
+                HealthKit. Background sync means your stress data is always up to
+                date — no manual input needed.
+              </p>
 
               {/* Mini pipeline */}
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-6">
                 {pipeline.map((step, i) => (
                   <div key={step.title} className="flex items-center gap-2">
                     <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm">
@@ -93,14 +84,14 @@ export default function WearableIntegration() {
             </div>
           </StaggerItem>
 
-          {/* 4 device cards */}
-          {devices.map((device) => (
-            <StaggerItem key={device.name}>
+          {/* 3 data type cards */}
+          {dataTypes.map((dt) => (
+            <StaggerItem key={dt.name}>
               <div className="group flex h-full flex-col items-center justify-center rounded-[var(--radius-lg)] border border-border-default bg-bg-card p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-border-glow hover:bg-bg-card-hover">
-                <div className="mb-3 text-4xl">{device.icon}</div>
-                <h4 className="mb-1 text-sm font-bold">{device.name}</h4>
+                <div className="mb-3 text-4xl">{dt.icon}</div>
+                <h4 className="mb-1 text-sm font-bold">{dt.name}</h4>
                 <p className="text-xs leading-relaxed text-text-secondary">
-                  {device.desc}
+                  {dt.desc}
                 </p>
               </div>
             </StaggerItem>
