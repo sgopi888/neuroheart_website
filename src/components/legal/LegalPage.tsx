@@ -3,16 +3,16 @@ import Footer from "@/components/layout/Footer";
 
 type LegalSection = {
   title: string;
-  paragraphs?: string[];
-  bullets?: string[];
+  paragraphs?: readonly string[];
+  bullets?: readonly string[];
   contact?: string;
 };
 
 type LegalPageProps = {
   title: string;
   effectiveDate: string;
-  intro: string[];
-  sections: LegalSection[];
+  intro: readonly string[];
+  sections: readonly LegalSection[];
 };
 
 export default function LegalPage({
