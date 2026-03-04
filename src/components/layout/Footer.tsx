@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
@@ -13,32 +14,38 @@ export default function Footer() {
 
         {/* Links */}
         <div className="flex items-center gap-6">
-          <a href="#" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
+          <Link href="/terms" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
             Terms of Use
-          </a>
-          <a href="#" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
+          </Link>
+          <Link href="/privacy" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
             Privacy Policy
-          </a>
+          </Link>
           <a
-            href="mailto:hello@neuroheart.ai"
+            href="mailto:ai@neuroheart.ai"
             className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary"
           >
-            hello@neuroheart.ai
+            ai@neuroheart.ai
           </a>
         </div>
 
         {/* Socials */}
         <div className="flex gap-3">
           {[
-            { icon: "⌨", title: "GitHub" },
-            { icon: "𝕏", title: "X / Twitter" },
-            { icon: "💬", title: "Discord" },
-            { icon: "📷", title: "Instagram" },
-          ].map((s) => (
+            // { icon: "⌨", title: "GitHub" },
+            // { icon: "𝕏", title: "X / Twitter" },
+            { icon: <Image
+            src="/images/linkedinlogo.png"
+            alt="LinkedIn"
+            width={20}
+            height={20}
+            className="w-6 h-6"
+          /> }           
+// { icon: "📷", title: "Instagram" },
+          ].map((s, i) => (
             <a
-              key={s.title}
-              href="#"
-              title={s.title}
+              key={i}
+              href="https://www.linkedin.com/in/s-gopi"              
+              title="LinkedIn"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-border-default bg-white/[0.04] text-[15px] transition-all duration-300 hover:border-border-glow hover:bg-accent/10"
             >
               {s.icon}

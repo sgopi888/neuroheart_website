@@ -5,19 +5,19 @@ import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChi
 
 const pillars = [
   {
-    icon: "💓",
-    title: "Real-Time HRV Analysis",
-    desc: "Continuous heart rate variability monitoring from your Apple Watch detects stress before you feel it — measuring RMSSD, SDNN, and sympathetic/parasympathetic balance.",
+    icon: "📊",
+    title: "Real-Time Stress Measurement",
+    desc: "Your Apple Watch continuously streams HRV data. NeuroHeart converts it into a live stress score — measuring RMSSD, SDNN, and sympathetic/parasympathetic balance in real time.",
   },
   {
     icon: "🤖",
     title: "Generative AI Engine",
-    desc: "AI processes your biometric data in real time, generating personalized meditation scripts, calming music, and stress interventions unique to your current state.",
+    desc: "AI processes your biofeedback data in real time, generating personalized meditation scripts, calming music, and stress interventions unique to your current state.",
   },
   {
-    icon: "📊",
-    title: "Proven Stress Reduction",
-    desc: "Research published at IEEE, FIE, and ASEE conferences demonstrates 30–40% reduction in perceived stress through our biofeedback-guided approach.",
+    icon: "🧘",
+    title: "Personalized Meditation & Live Music",
+    desc: "Every meditation is generated live for your exact stress state. AI composes calming soundscapes in real time, adapting tempo and tone to your heart rate variability.",
   },
 ];
 
@@ -27,18 +27,15 @@ export default function SciencePillars() {
       <div className="mx-auto max-w-[var(--max-width)]">
         <FadeIn className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-accent/15 bg-accent/[0.08] px-3.5 py-1.5 text-xs font-bold uppercase tracking-[1.5px] text-accent-light">
-            ✦ The Science
+            ✦ Why NeuroHeart.AI
           </span>
           <h2 className="text-[clamp(30px,4vw,48px)] font-extrabold leading-[1.1] tracking-[-1px]">
-            The Science Behind NeuroHeart
+            Why NeuroHeart.AI
           </h2>
           <p className="mx-auto mt-4 max-w-[600px] text-[17px] leading-relaxed text-text-secondary">
-            5 years of peer-reviewed research combining HRV biofeedback,
+            5 years of research combining HRV biofeedback,
             generative AI, and clinical stress science.
           </p>
-          <span className="mt-3 inline-flex items-center gap-1.5 text-xs text-text-muted">
-            📄 Evidence-based research presented at IEEE, FIE, and ASEE conferences
-          </span>
         </FadeIn>
 
         <StaggerChildren className="grid grid-cols-1 gap-5 md:grid-cols-3">

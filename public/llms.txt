@@ -1,0 +1,21 @@
+# NeuroHeart.AI
+
+> AI-powered iOS app for stress management using real-time heart rate variability (HRV)
+> biofeedback from Apple Watch, combined with AI-generated meditation and CBT-based therapy.
+
+## What is NeuroHeart.AI
+NeuroHeart.AI is an iOS app that uses real-time HRV data from Apple Watch to help users
+manage stress, anxiety, and emotional well-being through AI-personalized interventions.
+
+## Key Features
+- Real-time HRV stress measurement from Apple Watch
+- AI-generated personalized meditation
+- CBT-based therapy tools
+- Daily and weekly stress tracking
+
+## Research
+- Peer-reviewed research published at IEEE, FIE, and ASEE conferences
+
+## Links
+- Website: https://neuroheart.ai
+- Contact: ai@neuroheart.ai

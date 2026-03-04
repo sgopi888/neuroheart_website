@@ -12,11 +12,11 @@ const tools = [
   {
     icon: "🫂",
     title: "Emotional Regulation",
-    desc: "Identify, understand, and manage your emotions effectively. Build lasting resilience through AI-guided cognitive and somatic strategies informed by your biometric state.",
+    desc: "Identify, understand, and manage your emotions effectively. Build lasting resilience through AI-guided cognitive and somatic strategies informed by your biofeedback signals.",
   },
   {
     icon: "🎯",
-    title: "Biometric Focus Enhancement",
+    title: "Biofeedback Focus Enhancement",
     desc: "HRV-optimized focus sessions that adapt to your nervous system state. Sharpen attention and sustain deep work with biofeedback-informed mindfulness techniques.",
   },
   {

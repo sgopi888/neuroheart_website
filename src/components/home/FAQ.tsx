@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "How does it measure stress?",
-    a: "Your Apple Watch continuously monitors heart rate variability (HRV). NeuroHeart analyzes metrics like RMSSD, SDNN, and LF/HF ratio to quantify your stress level in real time — turning raw biometric data into actionable stress scores.",
+    a: "Your Apple Watch continuously monitors heart rate variability (HRV). NeuroHeart analyzes metrics like RMSSD, SDNN, and LF/HF ratio to quantify your stress level in real time — turning raw biofeedback data into actionable stress scores.",
   },
   {
     q: "Do I need an Apple Watch?",

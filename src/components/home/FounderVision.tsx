@@ -53,7 +53,7 @@ export default function FounderVision() {
               </p>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
                 A Generative AI and RAG Data Scientist who combines expertise in
-                AI research, biometrics, and metaphysics to transform mental
+                AI research, biofeedback, and metaphysics to transform mental
                 wellness through technology. Seasoned researcher with extensive
                 experience in AI development and a holistic approach to
                 well-being.

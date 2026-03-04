@@ -13,6 +13,8 @@ import AISolutions from "@/components/home/AISolutions";
 import DailyUseCases from "@/components/home/DailyUseCases";
 import FounderVision from "@/components/home/FounderVision";
 import FAQ from "@/components/home/FAQ";
+import Pricing from "@/components/home/Pricing";
+import Newsletter from "@/components/home/Newsletter";
 import FinalCTA from "@/components/home/FinalCTA";
 
 export default function Home() {
@@ -32,6 +34,8 @@ export default function Home() {
       <DailyUseCases />
       <FounderVision />
       <FAQ />
+      <Pricing />
+      <Newsletter />
       <FinalCTA />
       <Footer />
     </div>

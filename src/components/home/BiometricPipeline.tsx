@@ -42,7 +42,7 @@ export default function BiometricPipeline() {
   return (
     <section
       className="border-y border-border-default bg-bg-secondary px-6 py-[120px]"
-      id="biometric-pipeline"
+      id="biofeedback-pipeline"
     >
       <div className="mx-auto max-w-[var(--max-width)]">
         <FadeIn className="mb-16 text-center">

@@ -3,7 +3,7 @@
 import CountUp from "@/components/animations/CountUp";
 
 const stats = [
-  { end: 5, decimals: 0, suffix: "", label: "Years of Research" },
+  { end: 5, decimals: 0, suffix: "", label: "Years of Published Research" },
   { end: 40, decimals: 0, suffix: "%", label: "Stress Reduction" },
   { end: 10, decimals: 0, suffix: "", prefix: "$", label: "Per Month" },
   { end: 24, decimals: 0, suffix: "/7", label: "Real-Time Monitoring" },

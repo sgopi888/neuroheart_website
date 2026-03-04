@@ -1,6 +1,5 @@
 "use client";
 
-import FadeIn from "@/components/animations/FadeIn";
 import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChildren";
 
 const dataTypes = [
@@ -25,7 +24,7 @@ const pipeline = [
   {
     icon: "📡",
     title: "Collect",
-    desc: "Real-time biometric data from Apple Watch via HealthKit",
+    desc: "Real-time biofeedback data from Apple Watch via HealthKit",
   },
   {
     icon: "🧠",

@@ -20,7 +20,7 @@ const useCases = [
     icon: "🌙",
     time: "Evening",
     title: "Biofeedback Wind-Down",
-    desc: "Review your daily stress curve. Wind down with AI-generated sleep music composed from your biometric trends for deep, restorative rest.",
+    desc: "Review your daily stress curve. Wind down with AI-generated sleep music composed from your biofeedback trends for deep, restorative rest.",
   },
   {
     icon: "🏖️",

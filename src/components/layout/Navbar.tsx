@@ -7,6 +7,7 @@ const navLinks = [
   { label: "How it Works", href: "#how-it-works" },
   { label: "Features", href: "#features" },
   { label: "Comparison", href: "#comparison" },
+  { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -63,7 +64,7 @@ export default function Navbar() {
             href="#get-started"
             className="hidden rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_var(--accent-glow)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-light hover:shadow-[0_0_30px_var(--accent-glow)] md:inline-flex"
           >
-            Download App
+            Download for iOS
           </a>
 
           {/* Mobile hamburger */}
@@ -104,7 +105,7 @@ export default function Navbar() {
             className="rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_20px_var(--accent-glow)]"
             onClick={() => setMobileOpen(false)}
           >
-            Download App
+            Download for iOS
           </a>
         </div>
       )}

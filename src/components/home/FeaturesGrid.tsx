@@ -32,7 +32,7 @@ const features = [
   {
     icon: "🔔",
     title: "Smart Interventions",
-    desc: "NeuroHeart detects rising stress from your biometrics and proactively suggests breathing exercises or micro-meditations at the right moment.",
+    desc: "NeuroHeart detects rising stress from your biofeedback signals and proactively suggests breathing exercises or micro-meditations at the right moment.",
   },
 ];
 
