@@ -5,6 +5,7 @@ type LegalSection = {
   title: string;
   paragraphs?: readonly string[];
   bullets?: readonly string[];
+  afterBulletsParagraphs?: readonly string[];
   contact?: string;
 };
 
@@ -74,6 +75,13 @@ export default function LegalPage({
                         </li>
                       ))}
                     </ul>
+                  ) : null}
+                  {section.afterBulletsParagraphs ? (
+                    <div className="mt-3 space-y-3 text-[15px] leading-7 text-text-secondary">
+                      {section.afterBulletsParagraphs.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </div>
                   ) : null}
                   {section.contact ? (
                     <p className="mt-3 text-[15px] leading-7 text-text-secondary">
