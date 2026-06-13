@@ -13,7 +13,16 @@ export default function Footer() {
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <Link href="/user-guide" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
+            User Guide
+          </Link>
+          <Link href="/workflow" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
+            HRV Workflow
+          </Link>
+          <Link href="/references" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
+            Sources &amp; Methodology
+          </Link>
           <Link href="/terms" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
             Terms of Use
           </Link>
