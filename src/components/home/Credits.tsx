@@ -69,7 +69,7 @@ export default function Pricing() {
   const [showBetaModal, setShowBetaModal] = useState(false);
 
   return (
-    <section id="pricing" className="px-6 py-[120px]">
+    <section id="credits" className="px-6 py-[120px]">
       <div className="mx-auto max-w-[var(--max-width)]">
         <FadeIn className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-full border border-accent/15 bg-accent/[0.08] px-3.5 py-1.5 text-xs font-bold uppercase tracking-[1.5px] text-accent-light">
