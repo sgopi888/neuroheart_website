@@ -23,6 +23,7 @@ const dataSections = [
     title: "How NeuroHeart Uses This Data",
     items: [
       "NeuroHeart analyzes HRV and heart rate measurements to generate wellness insights, mindfulness recommendations, meditation guidance, recovery indicators, and stress-related wellness scores.",
+      "To personalize responses, de-identified metrics and chat context are securely processed by third-party commercial AI providers (without sending personal identifiers or being used for training), as detailed in our Privacy Policy.",
       "These insights are intended for wellness and self-reflection purposes only.",
     ],
   },
