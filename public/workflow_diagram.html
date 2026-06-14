@@ -1,60 +1,68 @@
 <!DOCTYPE html>
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>NeuroHeart - HRV Workflow</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-                "background": "#f0f7f7",
-                "surface-container-lowest": "#ffffff",
-                "primary-container": "#83c5be",
-                "error": "#ba1a1a",
-                "on-surface": "#002629",
-                "on-primary": "#ffffff",
-                "outline": "#6f8e8c",
-                "outline-variant": "#b0c2c0",
-                "on-tertiary-container": "#edf6f9",
-                "tertiary-fixed": "#83c5be",
-                "surface": "#f4fafa",
-                "tertiary": "#006d77",
-                "tertiary-fixed-dim": "#4eb3ab",
-                "on-tertiary": "#ffffff",
-                "on-surface-variant": "#405958",
-                "on-tertiary-fixed-variant": "#004f58",
-                "on-primary-container": "#003d42",
-                "surface-container-low": "#f2f4f6",
-                "primary": "#006d77",
-                "tertiary-container": "#004d55",
-                "surface-variant": "#dbe9e8",
-                "error-container": "#ffdad6"
-        },
-        "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "0.75rem",
-                "full": "9999px"
-        },
-        "fontFamily": {
-                "label-md": ["JetBrains Mono"],
-                "label-sm": ["JetBrains Mono"],
-                "headline-xl": ["Manrope"],
-                "headline-lg": ["Manrope"],
-                "headline-md": ["Manrope"],
-                "body-lg": ["Hanken Grotesk"],
-                "body-md": ["Hanken Grotesk"]
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NeuroHeart - HRV Workflow</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f0f7f7",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#83c5be",
+                        "error": "#ba1a1a",
+                        "on-surface": "#002629",
+                        "on-primary": "#ffffff",
+                        "outline": "#6f8e8c",
+                        "outline-variant": "#b0c2c0",
+                        "on-tertiary-container": "#edf6f9",
+                        "tertiary-fixed": "#83c5be",
+                        "surface": "#f4fafa",
+                        "tertiary": "#006d77",
+                        "tertiary-fixed-dim": "#4eb3ab",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#405958",
+                        "on-tertiary-fixed-variant": "#004f58",
+                        "on-primary-container": "#003d42",
+                        "surface-container-low": "#f2f4f6",
+                        "primary": "#006d77",
+                        "tertiary-container": "#004d55",
+                        "surface-variant": "#dbe9e8",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["JetBrains Mono"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-xl": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    }
+                },
+            },
         }
-      },
-    },
-  }
-</script>
-<style>
-        html, body { height: 100%; }
+    </script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined';
             font-weight: normal;
@@ -70,6 +78,7 @@
             -webkit-font-smoothing: antialiased;
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
         .glass-panel {
             background: rgba(255, 255, 255, 0.82);
             backdrop-filter: blur(20px);
@@ -82,7 +91,10 @@
             transition: transform 0.3s ease-in-out;
             transform: translateX(100%);
         }
-        #detail-sidebar.open { transform: translateX(0); }
+
+        #detail-sidebar.open {
+            transform: translateX(0);
+        }
 
         /* ---- Layout: cards in cols 1/3/5, arrow cells in cols 2/4 ---- */
         .diagram-grid {
@@ -92,7 +104,11 @@
             row-gap: 56px;
             align-items: stretch;
         }
-        .node-card { position: relative; z-index: 10; }
+
+        .node-card {
+            position: relative;
+            z-index: 10;
+        }
 
         /* ---- Arrows built purely from CSS (no SVG, no JS) ---- */
         .arrow-cell {
@@ -101,250 +117,372 @@
             align-items: center;
             justify-content: center;
         }
+
         /* The connecting line */
         .arrow-line {
             position: relative;
             background:
-                repeating-linear-gradient(90deg,#006d77 0 9px,transparent 9px 16px);
+                repeating-linear-gradient(90deg, #006d77 0 9px, transparent 9px 16px);
             height: 3px;
             border-radius: 999px;
         }
-        .arrow-line.h { width: 100%; }
+
+        .arrow-line.h {
+            width: 100%;
+        }
+
         .arrow-line.v {
             width: 3px;
             background:
-                repeating-linear-gradient(180deg,#006d77 0 9px,transparent 9px 16px);
+                repeating-linear-gradient(180deg, #006d77 0 9px, transparent 9px 16px);
         }
+
         /* Solid triangular arrowhead via borders */
         .arrowhead {
-            width: 0; height: 0;
+            width: 0;
+            height: 0;
             position: absolute;
             border-style: solid;
         }
+
         .arrowhead.right {
-            right: -2px; top: 50%; transform: translateY(-50%);
+            right: -2px;
+            top: 50%;
+            transform: translateY(-50%);
             border-width: 7px 0 7px 11px;
             border-color: transparent transparent transparent #006d77;
         }
+
         .arrowhead.left {
-            left: -2px; top: 50%; transform: translateY(-50%);
+            left: -2px;
+            top: 50%;
+            transform: translateY(-50%);
             border-width: 7px 11px 7px 0;
             border-color: transparent #006d77 transparent transparent;
         }
+
         .arrowhead.down {
-            bottom: -2px; left: 50%; transform: translateX(-50%);
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
             border-width: 11px 7px 0 7px;
             border-color: #006d77 transparent transparent transparent;
         }
+
         .arrowhead.up {
-            top: -2px; left: 50%; transform: translateX(-50%);
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
             border-width: 0 7px 11px 7px;
             border-color: transparent transparent #006d77 transparent;
         }
-        .arrow-flow { animation: arrowpulse 2.2s linear infinite; }
-        @keyframes arrowpulse { to { background-position: 32px 0; } }
+
+        .arrow-flow {
+            animation: arrowpulse 2.2s linear infinite;
+        }
+
+        @keyframes arrowpulse {
+            to {
+                background-position: 32px 0;
+            }
+        }
 
         /* Down arrow under card 3 (col5, between rows) */
         .arrow-down-cell {
-            grid-column: 5; grid-row: 1;
+            grid-column: 5;
+            grid-row: 1;
             align-self: end;
             position: relative;
             height: 56px;
             margin-bottom: -56px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             z-index: 6;
         }
-        .arrow-down-cell .arrow-line.v { height: 100%; }
+
+        .arrow-down-cell .arrow-line.v {
+            height: 100%;
+        }
 
         /* Up arrow above card 6 (col1, between rows) */
         .arrow-up-cell {
-            grid-column: 1; grid-row: 2;
+            grid-column: 1;
+            grid-row: 2;
             align-self: start;
             position: relative;
             height: 56px;
             margin-top: -56px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             z-index: 6;
         }
-        .arrow-up-cell .arrow-line.v { height: 100%; }
+
+        .arrow-up-cell .arrow-line.v {
+            height: 100%;
+        }
 
         /* Loop arrow: spans under the whole grid, curving 06 -> 01 on the left */
         .loop-track {
-            grid-column: 1 / 6; grid-row: 2;
+            grid-column: 1 / 6;
+            grid-row: 2;
             position: relative;
             pointer-events: none;
             z-index: 4;
         }
 
         @media (max-width: 900px) {
-            .diagram-grid { grid-template-columns: 1fr; row-gap: 18px; }
-            .arrow-cell, .arrow-down-cell, .loop-track { display: none; }
+            .diagram-grid {
+                grid-template-columns: 1fr;
+                row-gap: 18px;
+            }
+
+            .arrow-cell,
+            .arrow-down-cell,
+            .arrow-up-cell,
+            .loop-track {
+                display: none;
+            }
         }
-</style>
+    </style>
 </head>
+
 <body class="bg-gradient-to-br from-background to-[#e0f0ef] text-on-surface relative font-body-md flex flex-col">
-<main class="w-full max-w-6xl mx-auto px-12 pt-8 pb-16 flex flex-col flex-1 min-h-0">
-<!-- Header -->
-<header class="mb-6 text-center shrink-0">
-<h1 class="font-headline-xl text-primary text-3xl md:text-4xl font-bold tracking-tight mb-2">How NeuroHeart Uses Apple Watch HRV</h1>
-<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto text-base md:text-lg">A continuous biofeedback loop that personalizes your meditation practice through real-time physiological data.</p>
-</header>
+    <main class="w-full max-w-6xl mx-auto px-12 pt-8 pb-16 flex flex-col flex-1 min-h-0">
+        <!-- Header -->
+        <header class="mb-6 text-center shrink-0">
+            <h1 class="font-headline-xl text-primary text-3xl md:text-4xl font-bold tracking-tight mb-2">How NeuroHeart
+                Uses Apple Watch HRV</h1>
+            <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto text-base md:text-lg">A continuous
+                biofeedback loop that personalizes your meditation practice through real-time physiological data.</p>
+        </header>
 
-<!-- Diagram -->
-<div class="relative w-full flex-1 min-h-0 flex items-center">
-<div class="relative w-full" id="diagram-wrap" style="position:relative;">
-<div class="diagram-grid w-full">
-<!-- Row 1: Card1 → arrow → Card2 → arrow → Card3 -->
-<!-- Card 1 (col1, row1) -->
-<button class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group" style="grid-column:1;grid-row:1;" data-step="1">
-<div class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-fixed-dim to-tertiary-container text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-3xl">play_circle</span>
-</div>
-<span class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node 01</span>
-<h3 class="font-headline-md text-lg text-primary font-semibold mb-1 group-hover:text-tertiary transition-colors">Meditation Start</h3>
-<p class="font-body-md text-on-surface-variant text-sm">Initiated from the Practice tab, engaging the HealthKit connection.</p>
-</button>
+        <!-- Diagram -->
+        <div class="relative w-full flex-1 min-h-0 flex items-center">
+            <div class="relative w-full" id="diagram-wrap" style="position:relative;">
+                <div class="diagram-grid w-full">
+                    <!-- Row 1: Card1 → arrow → Card2 → arrow → Card3 -->
+                    <!-- Card 1 (col1, row1) -->
+                    <button
+                        class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group"
+                        style="grid-column:1;grid-row:1;" data-step="1">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-fixed-dim to-tertiary-container text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">play_circle</span>
+                        </div>
+                        <span
+                            class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node
+                            01</span>
+                        <h3
+                            class="font-headline-md text-lg text-primary font-semibold mb-1 group-hover:text-tertiary transition-colors">
+                            Meditation Start</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm">User generates and starts meditation.
+                        </p>
+                    </button>
 
-<!-- Arrow 1→2 (col2, row1) -->
-<div class="arrow-cell" style="grid-column:2;grid-row:1;">
-<div class="arrow-line h arrow-flow"><span class="arrowhead right"></span></div>
-</div>
+                    <!-- Arrow 1→2 (col2, row1) -->
+                    <div class="arrow-cell" style="grid-column:2;grid-row:1;">
+                        <div class="arrow-line h arrow-flow"><span class="arrowhead right"></span></div>
+                    </div>
 
-<!-- Card 2 (col3, row1) -->
-<button class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group" style="grid-column:3;grid-row:1;" data-step="2">
-<div class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-fixed to-tertiary-fixed-dim text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-3xl">watch</span>
-</div>
-<span class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node 02</span>
-<h3 class="font-headline-md text-lg text-primary font-semibold mb-2 group-hover:text-tertiary transition-colors">Apple Watch HRV</h3>
-<div class="text-left space-y-1.5 w-full">
-<p class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-fixed-dim pl-2.5 py-0.5 bg-tertiary-fixed/10 rounded-r">Starts <code class="font-label-sm text-tertiary text-xs">HKWorkoutSession</code></p>
-<p class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-fixed-dim pl-2.5 py-0.5 bg-tertiary-fixed/10 rounded-r">Begins <code class="font-label-sm text-tertiary text-xs">HKLiveWorkoutBuilder</code></p>
-<p class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-fixed-dim pl-2.5 py-0.5 bg-tertiary-fixed/10 rounded-r">Finishes <code class="font-label-sm text-tertiary text-xs">HKHeartbeatSeriesSample</code></p>
-</div>
-</button>
+                    <!-- Card 2 (col3, row1) -->
+                    <button
+                        class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group"
+                        style="grid-column:3;grid-row:1;" data-step="2">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-fixed to-tertiary-fixed-dim text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">watch</span>
+                        </div>
+                        <span
+                            class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node
+                            02</span>
+                        <h3
+                            class="font-headline-md text-lg text-primary font-semibold mb-2 group-hover:text-tertiary transition-colors">
+                            Watch Capture</h3>
+                        <div class="text-left space-y-1.5 w-full">
+                            <p
+                                class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-fixed-dim pl-2.5 py-0.5 bg-tertiary-fixed/10 rounded-r">
+                                Starts <code class="font-label-sm text-tertiary text-xs">HKWorkoutSession</code></p>
+                            <p
+                                class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-fixed-dim pl-2.5 py-0.5 bg-tertiary-fixed/10 rounded-r">
+                                <code class="font-label-sm text-tertiary text-xs">HKLiveWorkoutBuilder</code> runs</p>
+                            <p
+                                class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-fixed-dim pl-2.5 py-0.5 bg-tertiary-fixed/10 rounded-r">
+                                Series builder records beats</p>
+                        </div>
+                    </button>
 
-<!-- Arrow 2→3 (col4, row1) -->
-<div class="arrow-cell" style="grid-column:4;grid-row:1;">
-<div class="arrow-line h arrow-flow"><span class="arrowhead right"></span></div>
-</div>
+                    <!-- Arrow 2→3 (col4, row1) -->
+                    <div class="arrow-cell" style="grid-column:4;grid-row:1;">
+                        <div class="arrow-line h arrow-flow"><span class="arrowhead right"></span></div>
+                    </div>
 
-<!-- Card 3 (col5, row1) -->
-<button class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group" style="grid-column:5;grid-row:1;" data-step="3">
-<div class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary to-tertiary-container text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-3xl">monitoring</span>
-</div>
-<span class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node 03</span>
-<h3 class="font-headline-md text-lg text-primary font-semibold mb-2 group-hover:text-tertiary transition-colors">Extraction &amp; Transport</h3>
-<div class="text-left space-y-1.5 w-full">
-<p class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-container pl-2.5 py-0.5 bg-tertiary/5 rounded-r">Watch sends RR payload to iPhone</p>
-<p class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-container pl-2.5 py-0.5 bg-tertiary/5 rounded-r">Fallback reads <code class="font-label-sm text-tertiary text-xs">HKHeartbeatSeriesSample</code></p>
-<p class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-container pl-2.5 py-0.5 bg-tertiary/5 rounded-r">Uploads beginning/ending RR windows</p>
-</div>
-</button>
+                    <!-- Card 3 (col5, row1) -->
+                    <button
+                        class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group"
+                        style="grid-column:5;grid-row:1;" data-step="3">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary to-tertiary-container text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">monitoring</span>
+                        </div>
+                        <span
+                            class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node
+                            03</span>
+                        <h3
+                            class="font-headline-md text-lg text-primary font-semibold mb-2 group-hover:text-tertiary transition-colors">
+                            Series &amp; RR Read</h3>
+                        <div class="text-left space-y-1.5 w-full">
+                            <p
+                                class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-container pl-2.5 py-0.5 bg-tertiary/5 rounded-r">
+                                <code class="font-label-sm text-tertiary text-xs">finishSeries()</code> saves sample</p>
+                            <p
+                                class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-container pl-2.5 py-0.5 bg-tertiary/5 rounded-r">
+                                Query reads true RR</p>
+                            <p
+                                class="font-body-md text-on-surface-variant text-[13px] leading-snug border-l-2 border-tertiary-container pl-2.5 py-0.5 bg-tertiary/5 rounded-r">
+                                RR sent to iPhone</p>
+                        </div>
+                    </button>
 
-<!-- Down arrow 3→4 (col5, between rows) -->
-<div class="arrow-down-cell">
-<div class="arrow-line v arrow-flow" style="height:100%;"><span class="arrowhead down"></span></div>
-</div>
+                    <!-- Down arrow 3→4 (col5, between rows) -->
+                    <div class="arrow-down-cell">
+                        <div class="arrow-line v arrow-flow" style="height:100%;"><span class="arrowhead down"></span>
+                        </div>
+                    </div>
 
-<!-- Up arrow 6→1 (col1, between rows) -->
-<div class="arrow-up-cell">
-<div class="arrow-line v arrow-flow" style="height:100%;"><span class="arrowhead up"></span></div>
-</div>
+                    <!-- Up arrow 6→1 (col1, between rows) -->
+                    <div class="arrow-up-cell">
+                        <div class="arrow-line v arrow-flow" style="height:100%;"><span class="arrowhead up"></span>
+                        </div>
+                    </div>
 
-<!-- Row 2: Card6 ← arrow ← Card5 ← arrow ← Card4 -->
-<!-- Card 6 (col1, row2) -->
-<button class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary-fixed-dim transition-all duration-300 cursor-pointer group" style="grid-column:1;grid-row:2;" data-step="6">
-<div class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-container to-tertiary-fixed-dim text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-3xl">all_inclusive</span>
-</div>
-<span class="font-label-sm text-[11px] text-tertiary-container uppercase tracking-widest bg-tertiary-fixed-dim/20 px-3 py-1 rounded-full mb-2">Node 06</span>
-<h3 class="font-headline-md text-lg text-primary font-semibold mb-1 group-hover:text-tertiary-fixed-dim transition-colors">Loop Repeat</h3>
-<p class="font-body-md text-on-surface-variant text-sm">Continuous biofeedback and ongoing AI model improvement.</p>
-</button>
+                    <!-- Row 2: Card6 ← arrow ← Card5 ← arrow ← Card4 -->
+                    <!-- Card 6 (col1, row2) -->
+                    <button
+                        class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary-fixed-dim transition-all duration-300 cursor-pointer group"
+                        style="grid-column:1;grid-row:2;" data-step="6">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-container to-tertiary-fixed-dim text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">all_inclusive</span>
+                        </div>
+                        <span
+                            class="font-label-sm text-[11px] text-tertiary-container uppercase tracking-widest bg-tertiary-fixed-dim/20 px-3 py-1 rounded-full mb-2">Node
+                            06</span>
+                        <h3
+                            class="font-headline-md text-lg text-primary font-semibold mb-1 group-hover:text-tertiary-fixed-dim transition-colors">
+                            Future Personalization</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm">Future meditations use prior results.
+                        </p>
+                    </button>
 
-<!-- Arrow 5→6 (col2, row2) points LEFT -->
-<div class="arrow-cell" style="grid-column:2;grid-row:2;">
-<div class="arrow-line h arrow-flow"><span class="arrowhead left"></span></div>
-</div>
+                    <!-- Arrow 5→6 (col2, row2) points LEFT -->
+                    <div class="arrow-cell" style="grid-column:2;grid-row:2;">
+                        <div class="arrow-line h arrow-flow"><span class="arrowhead left"></span></div>
+                    </div>
 
-<!-- Card 5 (col3, row2) -->
-<button class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group" style="grid-column:3;grid-row:2;" data-step="5">
-<div class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-fixed-dim to-tertiary-fixed text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-3xl">audio_file</span>
-</div>
-<span class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node 05</span>
-<h3 class="font-headline-md text-lg text-primary font-semibold mb-1 group-hover:text-tertiary transition-colors">Personalized Script</h3>
-<p class="font-body-md text-on-surface-variant text-sm">Dynamic generation of guided meditation audio.</p>
-</button>
+                    <!-- Card 5 (col3, row2) -->
+                    <button
+                        class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group"
+                        style="grid-column:3;grid-row:2;" data-step="5">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-fixed-dim to-tertiary-fixed text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">forum</span>
+                        </div>
+                        <span
+                            class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node
+                            05</span>
+                        <h3
+                            class="font-headline-md text-lg text-primary font-semibold mb-1 group-hover:text-tertiary transition-colors">
+                            AI Chat Context</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm">Chatbot uses wellness context, not raw
+                            beats.</p>
+                    </button>
 
-<!-- Arrow 4→5 (col4, row2) points LEFT -->
-<div class="arrow-cell" style="grid-column:4;grid-row:2;">
-<div class="arrow-line h arrow-flow"><span class="arrowhead left"></span></div>
-</div>
+                    <!-- Arrow 4→5 (col4, row2) points LEFT -->
+                    <div class="arrow-cell" style="grid-column:4;grid-row:2;">
+                        <div class="arrow-line h arrow-flow"><span class="arrowhead left"></span></div>
+                    </div>
 
-<!-- Card 4 (col5, row2) -->
-<button class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group" style="grid-column:5;grid-row:2;" data-step="4">
-<div class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-container to-tertiary-fixed-dim text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-3xl">psychology</span>
-</div>
-<span class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node 04</span>
-<h3 class="font-headline-md text-lg text-primary font-semibold mb-1 group-hover:text-tertiary transition-colors">Backend &amp; AI Context</h3>
-<p class="font-body-md text-on-surface-variant text-sm">Backend computes HRV windows; app and AI use session-level wellness context.</p>
-</button>
-</div>
+                    <!-- Card 4 (col5, row2) -->
+                    <button
+                        class="node-card glass-panel rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-tertiary transition-all duration-300 cursor-pointer group"
+                        style="grid-column:5;grid-row:2;" data-step="4">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gradient-to-br from-tertiary-container to-tertiary-fixed-dim text-on-tertiary flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">psychology</span>
+                        </div>
+                        <span
+                            class="font-label-sm text-[11px] text-tertiary uppercase tracking-widest bg-tertiary/10 px-3 py-1 rounded-full mb-2">Node
+                            04</span>
+                        <h3
+                            class="font-headline-md text-lg text-primary font-semibold mb-1 group-hover:text-tertiary transition-colors">
+                            Backend Metrics</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm">NeuroHeart calculates and stores HRV
+                            metrics.</p>
+                    </button>
+                </div>
 
-<!-- Loop arrow 06 → 01 : a labeled badge below node 06, no fragile geometry -->
-<div class="hidden md:flex items-center justify-center gap-2 mt-5">
-<span class="material-symbols-outlined text-tertiary-container text-lg">subdirectory_arrow_left</span>
-<span class="font-label-sm text-[11px] text-tertiary-container uppercase tracking-widest bg-tertiary-fixed-dim/20 px-3 py-1.5 rounded-full">Loop back to Node 01 — continuous biofeedback</span>
-</div>
-</div>
-</div>
-</main>
+                <!-- Loop arrow 06 → 01 : a labeled badge below node 06, no fragile geometry -->
+                <div class="hidden md:flex items-center justify-center gap-2 mt-5">
+                    <span
+                        class="material-symbols-outlined text-tertiary-container text-lg">subdirectory_arrow_left</span>
+                    <span
+                        class="font-label-sm text-[11px] text-tertiary-container uppercase tracking-widest bg-tertiary-fixed-dim/20 px-3 py-1.5 rounded-full">Loop
+                        back to Node 01 — continuous biofeedback</span>
+                </div>
+            </div>
+        </div>
+    </main>
 
-<!-- Detail Sidebar -->
-<aside class="fixed top-0 right-0 h-full w-full sm:w-[450px] glass-panel z-50 flex flex-col shadow-2xl border-l border-outline-variant" id="detail-sidebar">
-<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface/90 backdrop-blur-md">
-<h2 class="font-headline-md text-xl text-primary font-semibold">Node Specifications</h2>
-<button class="text-on-surface-variant hover:text-error transition-colors p-2 rounded-full hover:bg-error-container" id="close-sidebar">
-<span class="material-symbols-outlined">close</span>
-</button>
-</div>
-<div class="p-8 overflow-y-auto flex-1 bg-surface-container-lowest/80 backdrop-blur-md" id="sidebar-content">
-<div class="text-center text-on-surface-variant mt-32">
-<span class="material-symbols-outlined text-5xl mb-6 text-outline-variant">touch_app</span>
-<p class="font-body-lg text-lg">Select a technical node to inspect its operational methodology.</p>
-</div>
-</div>
-</aside>
-<div class="fixed inset-0 bg-primary/30 backdrop-blur-sm z-40 hidden transition-opacity opacity-0" id="sidebar-overlay"></div>
+    <!-- Detail Sidebar -->
+    <aside
+        class="fixed top-0 right-0 h-full w-full sm:w-[450px] glass-panel z-50 flex flex-col shadow-2xl border-l border-outline-variant"
+        id="detail-sidebar">
+        <div
+            class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface/90 backdrop-blur-md">
+            <h2 class="font-headline-md text-xl text-primary font-semibold">Node Specifications</h2>
+            <button
+                class="text-on-surface-variant hover:text-error transition-colors p-2 rounded-full hover:bg-error-container"
+                id="close-sidebar">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-8 overflow-y-auto flex-1 bg-surface-container-lowest/80 backdrop-blur-md" id="sidebar-content">
+            <div class="text-center text-on-surface-variant mt-32">
+                <span class="material-symbols-outlined text-5xl mb-6 text-outline-variant">touch_app</span>
+                <p class="font-body-lg text-lg">Select a technical node to inspect its operational methodology.</p>
+            </div>
+        </div>
+    </aside>
+    <div class="fixed inset-0 bg-primary/30 backdrop-blur-sm z-40 hidden transition-opacity opacity-0"
+        id="sidebar-overlay"></div>
 
-<div class="fixed bottom-3 left-0 w-full text-center pointer-events-none z-10">
-<p class="font-label-sm text-[10px] text-on-surface-variant/60 uppercase tracking-wider">© 2024 Serene Precision. For educational purposes only. Not a medical device.</p>
-</div>
+    <div class="fixed bottom-3 left-0 w-full text-center pointer-events-none z-10">
+        <p class="font-label-sm text-[10px] text-on-surface-variant/60 uppercase tracking-wider">© 2024 Serene
+            Precision. For educational purposes only. Not a medical device.</p>
+    </div>
 
-<script>
-    const stepDetails = {
-        1: { title: "Meditation Start", icon: "play_circle", content: "The user initiates a session from the Practice tab. This signals the app to establish a secure connection with Apple HealthKit, preparing to record a specialized 'Mindful Session' workout. Environmental baseline metrics (time of day, recent activity) are logged to provide context." },
-        2: { title: "Apple Watch HRV", icon: "watch", content: "Exactly as before, <code>HKWorkoutSession</code> is still the engine. In <code>beginSessionInternal()</code>, the watch creates <code>HKWorkoutSession(config: .mindAndBody)</code>, calls <code>session.startActivity()</code>, begins <code>HKLiveWorkoutBuilder</code> collection, and creates <code>HKHeartbeatSeriesBuilder</code>. On stop, <code>finalizeHeartbeatSeries()</code> calls <code>heartbeatSeriesBuilder.finishSeries()</code> to produce the real <code>HKHeartbeatSeriesSample</code> saved in HealthKit." },
-        3: { title: "Extraction & Transport", icon: "monitoring", content: "After the watch finishes the heartbeat series, it sends a <code>heartbeat_series</code> payload to the iPhone via <code>WCSession.transferUserInfo(...)</code>. The iPhone treats that watch RR payload as the primary source of truth, splits it into beginning and ending windows, and uploads the session to <code>/v1/mindfulness/session</code>. If the watch payload never arrives, the iPhone falls back to reading the saved <code>HKHeartbeatSeriesSample</code> from HealthKit with <code>HKHeartbeatSeriesQuery</code>." },
-        4: { title: "Backend & AI Context", icon: "psychology", content: "The backend filters invalid RR intervals, computes session metrics such as SDNN, RMSSD, pNN50, mean heart rate, and calm summary outputs, and stores them in <code>mindfulness_sessions</code>. Those stored session-level results are what power Practice badges, session detail, and AI wellness context; raw RR is not the level surfaced as a chat-facing wellness insight." },
-        5: { title: "Personalized Script", icon: "audio_file", content: "Based on the contextual analysis, the AI dynamically generates or modifies a guided meditation script. If high sympathetic arousal (stress) is detected, it shifts to longer exhales and grounding techniques. If low arousal, it may introduce gentle focus exercises." },
-        6: { title: "Loop Repeat", icon: "all_inclusive", content: "The user experiences the new audio. Their resulting physiological response is measured again (returning to Step 2), creating a closed, continuous biofeedback loop. Over time, the AI learns which specific interventions are most effective for this unique user." }
-    };
+    <script>
+        const stepDetails = {
+            1: { title: "Meditation Start", icon: "play_circle", content: "The user generates a meditation and starts the session from the Practice tab. This begins the loop connecting meditation, physiology, and future personalization." },
+            2: { title: "Watch Capture", icon: "watch", content: "The Apple Watch starts <code>HKWorkoutSession</code>, runs <code>HKLiveWorkoutBuilder</code>, and keeps <code>HKHeartbeatSeriesBuilder</code> active during meditation so beat events are recorded." },
+            3: { title: "Series & RR Read", icon: "monitoring", content: "When meditation completes, <code>finishSeries()</code> saves the real <code>HKHeartbeatSeriesSample</code>. Then <code>HKHeartbeatSeriesQuery</code> reads the true RR intervals from that saved sample, and the RR payload is sent to the iPhone." },
+            4: { title: "Backend Metrics", icon: "psychology", content: "The iPhone sends the session to the backend, where NeuroHeart applies its own HRV and wellness calculations based on published HRV research and mindfulness literature. Metrics such as SDNN, RMSSD, pNN50, mean heart rate, calm summaries, and related session indicators are then calculated and stored." },
+            5: { title: "AI Chat Context", icon: "forum", content: "NeuroHeart may use third-party AI providers for chat, insights, and personalization. The model typically receives a wellness context package such as recent HRV and heart-rate trends, session summaries, meditation history, goals, mood, and optional calendar context, not raw heartbeat series or full HealthKit exports. Data is encrypted in transit and storage; commercial API data is generally not used for model training by default, though providers may retain requests briefly for security and abuse monitoring." },
+            6: { title: "Future Personalization", icon: "all_inclusive", content: "Future meditation generation can use stored results from prior sessions. That closes the loop so each completed session improves the next personalized meditation experience." }
+        };
 
-    const cards = document.querySelectorAll('button[data-step]');
-    const sidebar = document.getElementById('detail-sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-    const closeBtn = document.getElementById('close-sidebar');
-    const sidebarContent = document.getElementById('sidebar-content');
+        const cards = document.querySelectorAll('button[data-step]');
+        const sidebar = document.getElementById('detail-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const closeBtn = document.getElementById('close-sidebar');
+        const sidebarContent = document.getElementById('sidebar-content');
 
-    function openSidebar(stepId) {
-        const data = stepDetails[stepId];
-        if(!data) return;
-        sidebarContent.innerHTML = `
+        function openSidebar(stepId) {
+            const data = stepDetails[stepId];
+            if (!data) return;
+            sidebarContent.innerHTML = `
             <div class="flex items-center gap-4 mb-8">
                 <div class="w-14 h-14 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center border border-outline-variant/30">
                     <span class="material-symbols-outlined text-3xl">${data.icon}</span>
@@ -361,79 +499,83 @@
                 <span class="font-label-sm text-xs text-on-surface-variant uppercase tracking-widest mb-4 block">Security Protocol</span>
                 <div class="flex items-start gap-4 bg-surface-container-low p-4 rounded border border-outline-variant/30">
                     <span class="material-symbols-outlined text-tertiary text-xl">lock</span>
-                    <p class="font-body-md text-on-surface-variant text-sm">All HealthKit processing occurs on-device. Raw biometric data is encrypted at rest and never transmitted.</p>
+                    <p class="font-body-md text-on-surface-variant text-sm">Apple Health collection begins on-device. Session data needed for NeuroHeart metric calculation and storage is encrypted in transit and at rest.</p>
                 </div>
             </div>`;
-        sidebar.classList.add('open');
-        overlay.classList.remove('hidden');
-        setTimeout(() => overlay.classList.add('opacity-100'), 10);
-        cards.forEach(c => {
-            c.classList.remove('ring-4','ring-tertiary','ring-offset-2','ring-offset-background');
-            if(c.dataset.step === stepId) c.classList.add('ring-4','ring-tertiary','ring-offset-2','ring-offset-background');
-        });
-    }
-    function closeSidebarAction() {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('opacity-100');
-        setTimeout(() => overlay.classList.add('hidden'), 300);
-        cards.forEach(c => c.classList.remove('ring-4','ring-tertiary','ring-offset-2','ring-offset-background'));
-    }
-    cards.forEach(card => card.addEventListener('click', () => openSidebar(card.dataset.step)));
-    closeBtn.addEventListener('click', closeSidebarAction);
-    overlay.addEventListener('click', closeSidebarAction);
+            sidebar.classList.add('open');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            cards.forEach(c => {
+                c.classList.remove('ring-4', 'ring-tertiary', 'ring-offset-2', 'ring-offset-background');
+                if (c.dataset.step === stepId) c.classList.add('ring-4', 'ring-tertiary', 'ring-offset-2', 'ring-offset-background');
+            });
+        }
+        function closeSidebarAction() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('opacity-100');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+            cards.forEach(c => c.classList.remove('ring-4', 'ring-tertiary', 'ring-offset-2', 'ring-offset-background'));
+        }
+        cards.forEach(card => card.addEventListener('click', () => openSidebar(card.dataset.step)));
+        closeBtn.addEventListener('click', closeSidebarAction);
+        overlay.addEventListener('click', closeSidebarAction);
 
-    /* ---- Draw connectors aligned to real card positions ---- */
-    function cardById(step){ return document.querySelector(`button[data-step="${step}"]`); }
+        /* ---- Draw connectors aligned to real card positions ---- */
+        function cardById(step) { return document.querySelector(`button[data-step="${step}"]`); }
 
-    function drawFlows() {
-        const svg = document.getElementById('flow-svg');
-        const grid = document.querySelector('.diagram-grid');
-        const g = document.getElementById('flow-paths');
-        if (window.innerWidth <= 900) { g.replaceChildren(); return; }
+        function drawFlows() {
+            const svg = document.getElementById('flow-svg');
+            const grid = document.querySelector('.diagram-grid');
+            const g = document.getElementById('flow-paths');
+            if (window.innerWidth <= 900) { g.replaceChildren(); return; }
 
-        const base = grid.getBoundingClientRect();
-        svg.setAttribute('viewBox', `0 0 ${base.width} ${base.height}`);
-        svg.style.width = base.width + 'px';
-        svg.style.height = base.height + 'px';
+            const base = grid.getBoundingClientRect();
+            svg.setAttribute('viewBox', `0 0 ${base.width} ${base.height}`);
+            svg.style.width = base.width + 'px';
+            svg.style.height = base.height + 'px';
 
-        const r = (step) => {
-            const b = cardById(step).getBoundingClientRect();
-            return { left: b.left-base.left, right: b.right-base.left, top: b.top-base.top,
-                     bottom: b.bottom-base.top, cx: b.left-base.left+b.width/2, cy: b.top-base.top+b.height/2 };
-        };
-        const c1=r(1),c2=r(2),c3=r(3),c4=r(4),c5=r(5),c6=r(6);
-        const SVGNS='http://www.w3.org/2000/svg';
-        const seg=(d,mk)=>{
-            const path=document.createElementNS(SVGNS,'path');
-            path.setAttribute('class','path-flow');
-            path.setAttribute('d',d);
-            path.setAttribute('fill','none');
-            path.setAttribute('stroke', mk==='ah-loop'?'#004d55':'#006d77');
-            path.setAttribute('stroke-width','2.5');
-            path.setAttribute('stroke-linecap','round');
-            path.setAttribute('marker-end',`url(#${mk})`);
-            g.appendChild(path);
-        };
-        g.replaceChildren();
+            const r = (step) => {
+                const b = cardById(step).getBoundingClientRect();
+                return {
+                    left: b.left - base.left, right: b.right - base.left, top: b.top - base.top,
+                    bottom: b.bottom - base.top, cx: b.left - base.left + b.width / 2, cy: b.top - base.top + b.height / 2
+                };
+            };
+            const c1 = r(1), c2 = r(2), c3 = r(3), c4 = r(4), c5 = r(5), c6 = r(6);
+            const SVGNS = 'http://www.w3.org/2000/svg';
+            const seg = (d, mk) => {
+                const path = document.createElementNS(SVGNS, 'path');
+                path.setAttribute('class', 'path-flow');
+                path.setAttribute('d', d);
+                path.setAttribute('fill', 'none');
+                path.setAttribute('stroke', mk === 'ah-loop' ? '#004d55' : '#006d77');
+                path.setAttribute('stroke-width', '2.5');
+                path.setAttribute('stroke-linecap', 'round');
+                path.setAttribute('marker-end', `url(#${mk})`);
+                g.appendChild(path);
+            };
+            g.replaceChildren();
 
-        // Top row: 1 -> 2 -> 3 (left to right)
-        seg(`M ${c1.right+6} ${c1.cy} L ${c2.left-12} ${c1.cy}`,'ah');
-        seg(`M ${c2.right+6} ${c2.cy} L ${c3.left-12} ${c2.cy}`,'ah');
-        // 3 -> 4 (down right column)
-        seg(`M ${c3.cx} ${c3.bottom+6} L ${c4.cx} ${c4.top-12}`,'ah');
-        // Bottom row: 4 -> 5 -> 6 (right to left)
-        seg(`M ${c4.left-6} ${c4.cy} L ${c5.right+12} ${c4.cy}`,'ah');
-        seg(`M ${c5.left-6} ${c5.cy} L ${c6.right+12} ${c5.cy}`,'ah');
-        // Loop: 6 -> 1 (curve up left side)
-        const off = Math.min(40, c1.left - 4);
-        seg(`M ${c6.left-6} ${c6.cy} C ${c6.left-off} ${c6.cy}, ${c1.left-off} ${c1.cy}, ${c1.left-12} ${c1.cy}`,'ah-loop');
-    }
+            // Top row: 1 -> 2 -> 3 (left to right)
+            seg(`M ${c1.right + 6} ${c1.cy} L ${c2.left - 12} ${c1.cy}`, 'ah');
+            seg(`M ${c2.right + 6} ${c2.cy} L ${c3.left - 12} ${c2.cy}`, 'ah');
+            // 3 -> 4 (down right column)
+            seg(`M ${c3.cx} ${c3.bottom + 6} L ${c4.cx} ${c4.top - 12}`, 'ah');
+            // Bottom row: 4 -> 5 -> 6 (right to left)
+            seg(`M ${c4.left - 6} ${c4.cy} L ${c5.right + 12} ${c4.cy}`, 'ah');
+            seg(`M ${c5.left - 6} ${c5.cy} L ${c6.right + 12} ${c5.cy}`, 'ah');
+            // Loop: 6 -> 1 (curve up left side)
+            const off = Math.min(40, c1.left - 4);
+            seg(`M ${c6.left - 6} ${c6.cy} C ${c6.left - off} ${c6.cy}, ${c1.left - off} ${c1.cy}, ${c1.left - 12} ${c1.cy}`, 'ah-loop');
+        }
 
-    function scheduleDraw(){ requestAnimationFrame(()=>requestAnimationFrame(drawFlows)); }
-    window.addEventListener('load', scheduleDraw);
-    window.addEventListener('resize', scheduleDraw);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleDraw);
-    if (window.ResizeObserver) new ResizeObserver(scheduleDraw).observe(document.getElementById('diagram-wrap'));
-    setTimeout(drawFlows, 400);
-</script>
-</body></html>
+        function scheduleDraw() { requestAnimationFrame(() => requestAnimationFrame(drawFlows)); }
+        window.addEventListener('load', scheduleDraw);
+        window.addEventListener('resize', scheduleDraw);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleDraw);
+        if (window.ResizeObserver) new ResizeObserver(scheduleDraw).observe(document.getElementById('diagram-wrap'));
+        setTimeout(drawFlows, 400);
+    </script>
+</body>
+
+</html>

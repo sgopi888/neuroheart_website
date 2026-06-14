@@ -84,7 +84,7 @@ export default function UserGuidePage() {
   return (
     <LegalPage
       title="User Guide"
-      effectiveDate="Updated: May 28, 2026"
+      effectiveDate="Updated: June 2026"
       intro={intro}
       sections={sections}
     />
