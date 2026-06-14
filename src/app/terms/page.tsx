@@ -58,7 +58,8 @@ const sections = [
       "Should be evaluated using your own judgment and, where appropriate, the guidance of qualified professionals.",
     ],
     afterBulletsParagraphs: [
-      "To generate responses, information you choose to share may be transmitted to third-party AI service providers as described in our Privacy Policy. Your continued use of AI features indicates your consent to this processing.",
+      "To generate personalized responses, de-identified information (such as HRV trends and chat context) is securely transmitted to third-party commercial AI service providers. As detailed in our Privacy Policy, personally identifiable information is never shared, and your data is not used to train their AI models.",
+      "Your continued use of AI features indicates your consent to this processing.",
     ],
   },
   {
