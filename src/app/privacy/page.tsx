@@ -53,20 +53,20 @@ const sections = [
     ],
   },
   {
-    title: "4. AI Processing",
+    title: "4. AI Service Providers",
     paragraphs: [
-      "NeuroHeart AI may utilize third-party artificial intelligence service providers to generate conversational responses and wellness guidance. These providers currently include, but are not limited to:",
+      "NeuroHeart may use third-party AI service providers, including OpenAI, Anthropic (Claude), Google (Gemini), xAI (Grok), DeepSeek, and similar providers, to deliver AI-powered conversations, wellness insights, meditation generation, and personalization features.",
+      "When information is sent to these providers through commercial APIs:",
     ],
     bullets: [
-      "OpenAI — processes chat messages and wellness-related text to generate conversational responses.",
-      "ElevenLabs — processes text to generate voice (audio) responses.",
-      "LangSmith — receives application and AI interaction logs used to monitor, debug, and improve service quality.",
+      "Data is encrypted during transmission and storage using industry-standard security practices.",
+      "Data submitted through commercial API services is generally not used to train or improve provider AI models by default unless explicit consent or opt-in arrangements are provided.",
+      "Providers may temporarily retain API requests and responses for security monitoring, abuse prevention, fraud detection, legal compliance, service reliability, and operational purposes. Retention periods vary by provider but are typically limited and often around 30 days unless a longer period is required by law or contractual obligations.",
+      "NeuroHeart does not control the internal systems, infrastructure, retention policies, or operational practices of third-party AI providers, which may change over time.",
+      "NeuroHeart shares only the information reasonably necessary to provide requested AI-powered functionality and strives to minimize the transmission of sensitive personal information whenever possible.",
     ],
     afterBulletsParagraphs: [
-      "We may add, remove, or change providers over time; this list describes the categories of providers in use and representative examples.",
-      "Information submitted to AI providers is transmitted solely for generating requested responses.",
-      "Where available, NeuroHeart AI enables provider privacy controls intended to prevent customer content from being used to train AI models.",
-      "NeuroHeart AI does not intentionally provide HRV history, heart rate history, HealthKit records, Apple Watch wellness data, calendar data, or long-term wellness records to AI providers unless required to deliver a feature specifically requested by the user.",
+      "While no LLM-based service can guarantee absolute security, NeuroHeart selects providers that maintain industry-standard privacy, security, and compliance programs designed to protect customer data and support responsible AI operations.",
     ],
   },
   {
