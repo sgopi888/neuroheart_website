@@ -7,7 +7,7 @@ const navLinks = [
   { label: "How it Works", href: "#how-it-works" },
   { label: "Features", href: "#features" },
   { label: "Comparison", href: "#comparison" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Credits", href: "#credits" },
   { label: "FAQ", href: "#faq" },
 ];
 

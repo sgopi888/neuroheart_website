@@ -16,7 +16,7 @@ interface FeatureRow {
 }
 
 const competitors: Competitor[] = [
-  { name: "NeuroHeart", price: "$10/mo", highlight: true, logo: "/neuroheart-logo.png" },
+  { name: "NeuroHeart", price: "Free (Credits)", highlight: true, logo: "/neuroheart-logo.png" },
   { name: "Calm", price: "$15/mo" },
   { name: "Headspace", price: "$13/mo" },
   { name: "Whoop", price: "$30/mo" },
@@ -162,10 +162,10 @@ export default function Comparison() {
                   </tr>
                 ))}
 
-                {/* Price row */}
+                {/* Cost row */}
                 <tr>
                   <td className="pt-3.5 pr-4 text-sm font-bold text-text-primary">
-                    Price / month
+                    Cost
                   </td>
 
                   {competitors.map((c) => (

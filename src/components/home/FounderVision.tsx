@@ -49,7 +49,7 @@ export default function FounderVision() {
               </div>
               <h3 className="text-2xl font-extrabold">Sreekanth Gopi</h3>
               <p className="mt-1 text-sm font-semibold text-accent-light">
-                Founder &amp; CEO, NeuroHeart.ai
+                Founder, NeuroHeart.ai
               </p>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
                 A Generative AI and RAG Data Scientist who combines expertise in

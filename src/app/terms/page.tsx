@@ -92,9 +92,9 @@ const sections = [
     ],
   },
   {
-    title: "9. Subscriptions and Payments",
+    title: "9. The Credit System",
     paragraphs: [
-      "Certain features may require a paid subscription. Pricing, billing cycles, and renewal terms are presented at the point of purchase. Subscriptions managed through the Apple App Store are subject to Apple's terms, and billing, cancellation, and refunds are handled according to those terms.",
+      "NeuroHeart AI uses a daily credit system instead of paid subscriptions. Credits are earned through active engagement, practice, and mindful interaction with the app. Credits have no monetary value, reset daily at midnight, and cannot be purchased, traded, or transferred. We reserve the right to modify the credit structure and available features at any time.",
     ],
   },
   {

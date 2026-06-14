@@ -1,72 +1,108 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
-const faqs = [
-  // ── Getting started ──────────────────────────────────────────────────────
+const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "What is NeuroHeart AI?",
-    a: "NeuroHeart AI is a wellness and mindfulness companion for iPhone and Apple Watch. It uses Heart Rate Variability (HRV) data from Apple Health and Apple Watch to generate personalized AI-guided meditations, provide wellness insights, and support stress awareness, recovery, and self-reflection.",
+    a: "NeuroHeart AI is an AI-powered wellness companion that combines personalized conversations, guided meditation, mindfulness practices, and Apple Watch wellness measurements to help you better understand stress, recovery, focus, and emotional well-being.",
   },
   {
-    q: "How do I get started?",
-    a: "Open the app and you'll see six tabs at the bottom: Home · Chat · HRV · Practice · Calendar · Settings. The quickest way to begin is to open the Chat tab, tell NeuroHeart how you're feeling — \"I'm stressed\" or \"I need help focusing\" — then tap Generate Meditation. NeuroHeart creates a personalized session and adds it to your Practice library instantly.",
+    q: "Is NeuroHeart AI free?",
+    a: "Yes. NeuroHeart is currently available through Early Access at no cost.",
   },
   {
     q: "Do I need an Apple Watch?",
-    a: "Apple Watch is recommended for the fullest experience. The Reflect sub-tab in Practice works on iPhone alone — it generates personalized meditation scripts without any wearable. The ReadHRV feature and live biofeedback require the NeuroHeart companion app installed on an Apple Watch worn during your session.",
-  },
-  // ── Core features ─────────────────────────────────────────────────────────
-  {
-    q: "What does the Practice tab do?",
-    a: "Practice is the heart of NeuroHeart. It has two sub-tabs: Reflect and ReadHRV. Reflect builds a personalized guided meditation — pick your mood (Stressed, Anxious, Sad…), a focus area (Mind, Body, Emotions…), and a duration, then tap Generate. ReadHRV is the only place the app captures live heart-timing data from your Apple Watch, letting NeuroHeart's backend calculate real-time HRV metrics.",
+    a: "No. You can use NeuroHeart on your iPhone alone. However, an Apple Watch unlocks the full NeuroHeart experience by allowing meditation-session measurements and deeper personalization.",
   },
   {
-    q: "What can I do in the Chat tab?",
-    a: "Chat is your personal wellness companion. Talk about stress, focus, sleep, recovery, emotional wellness, or recent meditation experiences. You can ask questions like \"How did my last meditation go?\", \"What wellness trends do you notice?\", or \"What should I focus on next?\" The AI uses your wellness history, meditation results, Apple Health data, and previous conversations to give personalized guidance. Chat and Practice work together — conversations help create meditations, and meditation results improve future conversations.",
+    q: "How does NeuroHeart work?",
+    a: (
+      <>
+        NeuroHeart follows a simple cycle:
+        <br />
+        <br />
+        <strong>Chat → Generate Meditation → Practice → Measure → Learn → Improve</strong>
+        <br />
+        <br />
+        The more you use NeuroHeart, the more personalized your wellness experience becomes.
+      </>
+    ),
   },
   {
-    q: "What does the HRV tab show?",
-    a: "The HRV tab surfaces your wellness trends using data from Apple Health and your meditation sessions. You'll see your latest HRV measurements, daily/weekly/monthly trends, wellness indicators, and recent session insights. Focus on trends over time rather than any single reading — small daily fluctuations are completely normal.",
+    q: "What makes NeuroHeart different?",
+    a: "Most meditation apps provide the same content to everyone. NeuroHeart creates personalized meditation experiences and learns from your practice history, wellness trends, and meditation-session results over time.",
   },
   {
-    q: "What is ReadHRV and how is it different from Reflect?",
-    a: "ReadHRV (a sub-tab inside Practice) is the only feature that captures live heart-timing data directly from your Apple Watch. Make sure the NeuroHeart watch app is open and your watch is on your wrist, then sit still and breathe naturally for the most accurate reading. Reflect, the other sub-tab, generates a personalized meditation script — it does not capture live watch data and works on iPhone alone.",
+    q: "Can NeuroHeart create personalized meditations?",
+    a: "Yes. NeuroHeart can generate guided meditation sessions tailored to your mood, goals, recent conversations, and wellness context.",
   },
   {
-    q: "How does NeuroHeart measure HRV?",
-    a: "NeuroHeart reads heart-rate and beat-interval data from Apple Watch through HealthKit. During a ReadHRV session, the watch streams live heart-timing measurements to the iPhone, and NeuroHeart's backend calculates metrics such as RMSSD, SDNN, and pNN50. Session results are saved to your history and used to personalize future meditations and wellness insights.",
-  },
-  // ── Getting the most from it ──────────────────────────────────────────────
-  {
-    q: "How do I get the best results?",
-    a: "1. Install the Apple Watch companion app and allow Apple Health permissions. 2. Complete a few meditation sessions — the more sessions NeuroHeart sees, the more personalized your experience becomes. 3. Use Chat and Practice together: let Chat generate meditations based on how you feel, then review insights in the HRV tab afterwards. 4. Focus on long-term trends rather than individual readings.",
+    q: "What happens during a meditation session?",
+    a: "During meditation, NeuroHeart can use Apple Watch measurements to understand how your body responds to practice. These insights help personalize future recommendations and meditation sessions.",
   },
   {
-    q: "What happens after I complete a meditation?",
-    a: "The session is saved to your Practice history. NeuroHeart generates wellness-oriented insights from the session, updates your HRV trends, and uses the results to personalize future meditations and Chat conversations. Over time your meditation history becomes part of an ongoing wellness picture that helps NeuroHeart adapt to you.",
+    q: "What is HRV?",
+    a: "HRV (Heart Rate Variability) measures natural variations in time between heartbeats and is commonly used as one indicator of stress, recovery, and overall wellness.",
   },
   {
-    q: "What is the Calendar tab for?",
-    a: "Connecting your calendar lets the AI be aware of your schedule. Once you enable Calendar Sync (Settings → Permissions → Allow Calendar Sync), the AI can give advice that fits around your meetings, travel, and free time. Nothing is shared outside the app unless you ask the AI a calendar-related question.",
+    q: "Why are my HRV numbers different from someone else's?",
+    a: "HRV is highly personal and influenced by many factors, including age, sleep, fitness, stress, hydration, and lifestyle. Focus on your own trends rather than comparing numbers with others.",
   },
-  // ── Privacy & data ────────────────────────────────────────────────────────
   {
-    q: "Is my health data safe?",
-    a: "Yes. NeuroHeart never sells your health data, never uses it for advertising, and never shares it with data brokers. Apple Health and Apple Watch data is used only to provide the wellness features you request. All data is transmitted over encrypted HTTPS and stored in secured infrastructure. You can delete your account — and all associated data — directly inside the app at any time.",
+    q: "Can NeuroHeart diagnose medical conditions?",
+    a: "No. NeuroHeart is designed for wellness, mindfulness, and self-reflection. It does not provide medical advice, diagnosis, or treatment.",
+  },
+  {
+    q: "Does NeuroHeart provide therapy?",
+    a: "No. NeuroHeart is not a therapist or healthcare provider. It offers wellness-oriented support, mindfulness guidance, and reflective conversations.",
+  },
+  {
+    q: "How is my data used?",
+    a: "Your information is used to provide personalized wellness experiences, recommendations, meditation sessions, and insights. You remain in control of your permissions and data sharing choices.",
+  },
+  {
+    q: "Is my raw Apple Watch data sent to AI models?",
+    a: "No. NeuroHeart primarily uses wellness metrics, summaries, and insights derived from measurements rather than sharing raw physiological data.",
+  },
+  {
+    q: "How do I get the best experience?",
+    a: (
+      <ul className="list-disc pl-5 space-y-1 mt-2">
+        <li>Install the Apple Watch companion app</li>
+        <li>Enable Apple Health permissions</li>
+        <li>Complete meditation sessions regularly</li>
+        <li>Use both Chat and Practice features</li>
+        <li>Focus on long-term wellness trends</li>
+      </ul>
+    ),
+  },
+  {
+    q: "Can I delete my account?",
+    a: "Yes. You can permanently delete your account at any time from Settings → Delete Account.",
+  },
+  {
+    q: "Where can I learn more about the science behind NeuroHeart?",
+    a: "Visit our References page and Sources & Methodology section to explore the research and wellness principles that inform NeuroHeart's experiences.",
   },
   {
     q: "Is NeuroHeart a medical device?",
-    a: "No. NeuroHeart is a wellness and mindfulness application intended for self-reflection, stress awareness, and general wellbeing. It is not a medical device and does not provide medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for medical concerns. If you are experiencing a medical emergency, call 911 or your local emergency number immediately.",
-  },
-  // ── Pricing & platform ────────────────────────────────────────────────────
-  {
-    q: "How much does NeuroHeart cost?",
-    a: "NeuroHeart is $10/month — less than Calm ($15), Headspace ($13), Whoop ($30), or Apollo Neuro ($40), while combining live HRV biofeedback, AI-generated meditation scripts, and personalized wellness insights in one app. Subscriptions are managed through the Apple App Store.",
+    a: "No. NeuroHeart is a wellness application intended to support mindfulness, self-reflection, stress management, and healthy habits. It is not a medical device.",
   },
   {
-    q: "Is Android supported?",
-    a: "Not yet. NeuroHeart currently requires iPhone and Apple Watch. Android and other wearable support are on the roadmap — join the beta to stay updated.",
+    q: "What is the best way to get started?",
+    a: (
+      <>
+        <ol className="list-decimal pl-5 space-y-1 mt-2 mb-4">
+          <li>Sign in.</li>
+          <li>Chat with NeuroHeart about how you're feeling.</li>
+          <li>Generate your first meditation.</li>
+          <li>Complete the session.</li>
+          <li>Ask NeuroHeart about your progress and wellness insights.</li>
+        </ol>
+        NeuroHeart will guide you from there.
+      </>
+    ),
   },
 ];
 
@@ -91,7 +127,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-[17px] leading-relaxed text-text-secondary">
-            Everything you need to know about NeuroHeart AI — from getting started to HRV, privacy, and pricing.
+            Everything you need to know about NeuroHeart AI — from getting started to HRV, privacy, and credits.
           </p>
         </div>
 

@@ -13,7 +13,7 @@ import AISolutions from "@/components/home/AISolutions";
 import DailyUseCases from "@/components/home/DailyUseCases";
 import FounderVision from "@/components/home/FounderVision";
 import FAQ from "@/components/home/FAQ";
-import Pricing from "@/components/home/Pricing";
+import Credits from "@/components/home/Credits";
 import Newsletter from "@/components/home/Newsletter";
 import FinalCTA from "@/components/home/FinalCTA";
 
@@ -34,7 +34,7 @@ export default function Home() {
       <DailyUseCases />
       <FounderVision />
       <FAQ />
-      <Pricing />
+      <Credits />
       <Newsletter />
       <FinalCTA />
       <Footer />
