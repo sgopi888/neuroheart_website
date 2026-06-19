@@ -1,12 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import BetaSignupModal from "@/components/home/BetaSignupModal";
 
 export default function Hero() {
-  const [showBetaModal, setShowBetaModal] = useState(false);
-
   return (
     <section className="relative overflow-hidden px-6 pt-40 pb-24 text-center md:pt-44">
       {/* Background glow */}
@@ -47,27 +43,28 @@ export default function Hero() {
         {/* Buttons */}
         <div className="relative mt-9 flex flex-wrap items-center justify-center gap-3.5">
           <a
-            href="#get-started"
-            className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-[13px] text-[15px] font-semibold text-white shadow-[0_0_20px_var(--accent-glow)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-light hover:shadow-[0_0_30px_var(--accent-glow),0_4px_20px_rgba(139,92,246,0.3)]"
+            href="https://apps.apple.com/in/app/neuroheart-sync/id6773976632"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-[13px] rounded-[13px] border border-[#1d4f4a] bg-[radial-gradient(120%_140%_at_30%_0%,#0c2b2a_0%,#08191b_70%)] px-[18px] py-[11px] no-underline shadow-[0_0_22px_rgba(45,212,191,0.18),inset_0_1px_0_rgba(94,234,212,0.12)] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(45,212,191,0.4),inset_0_1px_0_rgba(94,234,212,0.2)]"
           >
-            <svg
-              className="h-[18px] w-[18px]"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+            <svg width="26" height="32" viewBox="0 0 24 28" fill="#2dd4bf" aria-hidden="true">
+              <path d="M17.05 14.86c-.03-3.02 2.47-4.47 2.58-4.54-1.41-2.06-3.6-2.34-4.38-2.37-1.86-.19-3.64 1.1-4.58 1.1-.95 0-2.4-1.08-3.95-1.05-2.03.03-3.9 1.18-4.94 3-2.11 3.66-.54 9.07 1.5 12.04 1 1.45 2.19 3.08 3.74 3.02 1.51-.06 2.08-.97 3.9-.97 1.82 0 2.33.97 3.92.94 1.62-.03 2.65-1.48 3.64-2.94 1.15-1.68 1.62-3.31 1.65-3.4-.04-.01-3.15-1.2-3.18-4.78zM14.07 5.98c.82-1 1.38-2.39 1.22-3.78-1.18.05-2.62.79-3.47 1.78-.76.88-1.43 2.29-1.25 3.64 1.32.1 2.67-.67 3.5-1.64z" />
             </svg>
-            Download for iOS
+            <span className="text-left leading-[1.1]">
+              <span className="block text-[11px] font-medium tracking-[0.02em] text-[#5b8480]">Download on the</span>
+              <span className="mt-px block text-[20px] font-semibold text-[#d6fbf5]">App Store</span>
+            </span>
           </a>
-          <button
-            onClick={() => setShowBetaModal(true)}
-            className="inline-flex items-center gap-2 rounded-full border border-border-default bg-white/[0.06] px-7 py-[13px] text-[15px] font-semibold text-text-primary backdrop-blur-[10px] transition-all duration-300 hover:-translate-y-0.5 hover:border-border-glow hover:bg-white/10"
+          <a
+            href="https://calendar.app.google/Z75xYf1VZSD4cGQ28"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-2 rounded-full border border-border-default bg-white/[0.06] px-7 py-[13px] text-[15px] font-semibold text-text-primary no-underline backdrop-blur-[10px] transition-all duration-300 hover:-translate-y-0.5 hover:border-border-glow hover:bg-white/10"
           >
             Join the Beta
-          </button>
+          </a>
         </div>
-
-        <BetaSignupModal isOpen={showBetaModal} onClose={() => setShowBetaModal(false)} />
 
         {/* App Preview */}
         <div className="relative mx-auto mt-16 flex max-w-[900px] items-center justify-center gap-6 sm:gap-10">

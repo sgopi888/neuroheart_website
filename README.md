@@ -25,6 +25,14 @@ npm run build
 npm run start
 ```
 
+## Commit and Push Changes
+
+```bash 
+git add .
+git commit -m "chore: Update pricing to free daily credits system"
+git push
+```
+
 ## Project Structure
 
 - `src/app` - routes, metadata, API handlers
