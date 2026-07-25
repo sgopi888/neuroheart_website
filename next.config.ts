@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      {
+        source: "/founder/music",
+        destination: "/founder-music-v2.html",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

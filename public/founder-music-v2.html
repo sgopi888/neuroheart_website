@@ -1,0 +1,1191 @@
+<meta charset="utf-8">
+<title>Sreekanth Gopi — Music</title>
+
+<style>
+  /* ============ OCEAN DEPTHS v2.1 — NeuroHeartSync design system ============
+     Committed dark theme: the app's single visual world. */
+  :root {
+    --bg-void: #040B14;
+    --bg-primary: #081220;
+    --bg-card: #0E1E2E;
+    --bg-elevated: #153044;
+    --text-primary: #E6F6FA;
+    --text-secondary: #6EA0B4;
+    --text-tertiary: #365A6C;
+    --separator: #142C3C;
+    --cyan: #00DDC8;
+    --cyan-electric: #00E8FF;
+    --sea: #12C49E;
+    --sapphire: #2E8ADB;
+    --emerald: #10B87A;
+    --aqua: #56C8D8;
+    --good: #2AEBC2;
+    --banner-title: #F0FAFA;
+  }
+  :root[data-theme="light"], :root[data-theme="dark"] { color-scheme: dark; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "DM Sans", "Avenir Next", Avenir, "Helvetica Neue", system-ui, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    font-weight: 300;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  .display {
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", "Playfair Display", Georgia, serif;
+    font-weight: 300;
+  }
+  a { color: var(--aqua); text-decoration-color: rgba(86, 200, 216, 0.3); text-underline-offset: 3px; }
+  a:hover { color: var(--cyan-electric); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 84px 0; position: relative; }
+  .eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; margin: 0 0 14px;
+  }
+  h2 {
+    font-size: clamp(32px, 4.8vw, 52px);
+    line-height: 1.1;
+    margin: 0 0 12px;
+    text-wrap: balance;
+    color: var(--banner-title);
+  }
+  .lede { font-size: 18px; color: var(--text-secondary); max-width: 64ch; margin: 0 0 44px; }
+  .rule { border: none; border-top: 1px solid var(--separator); margin: 0; }
+
+  .s-cyan     { --acc: var(--cyan);     --acc-e: var(--cyan-electric); }
+  .s-emerald  { --acc: var(--emerald);  --acc-e: var(--good); }
+  .s-sapphire { --acc: var(--sapphire); --acc-e: #5FB0F0; }
+  .s-sea      { --acc: var(--sea);      --acc-e: var(--good); }
+  .s-aqua     { --acc: var(--aqua);     --acc-e: var(--cyan-electric); }
+  section .eyebrow { color: var(--acc, var(--cyan)); }
+
+  /* ============ SCROLL REVEAL ============ */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 90px 0 0;
+    overflow: hidden;
+    background: linear-gradient(160deg, #040B14 0%, #0C1C2E 55%, #0E2430 100%);
+  }
+  .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hero-inner { position: relative; }
+  .hero .eyebrow { color: var(--sea); }
+  .hero h1 {
+    font-size: clamp(46px, 8.6vw, 104px);
+    line-height: 0.98;
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: var(--banner-title);
+    text-wrap: balance;
+  }
+  .hero h1 .grad {
+    background: linear-gradient(90deg, var(--cyan-electric), var(--cyan), var(--emerald), var(--sapphire), var(--cyan-electric));
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradsweep 9s ease-in-out infinite;
+  }
+  @keyframes gradsweep {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .hero h1 .kw.grad {
+    animation: kwin 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) forwards,
+               gradsweep 9s ease-in-out infinite;
+    animation-delay: calc(var(--d, 0) * 0.11s), 0s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero h1 .grad, .hero h1 .kw.grad { animation: none; opacity: 1; transform: none; }
+  }
+  .hero-sub {
+    font-size: clamp(17px, 2.3vw, 22px);
+    color: var(--text-secondary);
+    max-width: 56ch;
+    margin: 28px 0 0;
+  }
+  .hero-sub strong { color: var(--text-primary); font-weight: 500; }
+  .live-dot {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--good); margin-right: 8px;
+    box-shadow: 0 0 10px rgba(42, 235, 194, 0.7);
+  }
+  /* Kinetic word reveal — staggered rise on load */
+  .kw {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.55em);
+    animation: kwin 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    animation-delay: calc(var(--d, 0) * 0.11s);
+  }
+  @keyframes kwin { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .kw { animation: none; opacity: 1; transform: none; }
+  }
+  .scroll-cue {
+    margin: 40px 0 0;
+    font-size: 12.5px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  /* Waveform fragments — the signal path made visible */
+  .wave-strip {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 8px 0;
+    margin-top: 44px;
+  }
+  .wave-frag {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .wave-frag:not(.last)::after {
+    content: "";
+    display: inline-block; vertical-align: middle;
+    width: 54px; height: 1px; margin: 0 16px;
+    background: linear-gradient(90deg, var(--cyan), transparent 92%);
+    opacity: 0.6;
+  }
+
+  /* Identity ribbon — One Person, Many Frequencies */
+  .ribbon {
+    position: relative; overflow: hidden;
+    border-top: 1px solid rgba(0, 221, 200, 0.1);
+    border-bottom: 1px solid rgba(0, 221, 200, 0.1);
+    background: rgba(4, 11, 20, 0.6);
+    padding: 40px 0;
+  }
+  .ribbon-track {
+    display: flex; width: max-content;
+    animation: tick 44s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) { .ribbon-track { animation: none; } }
+  .ribbon-track span {
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", Georgia, serif;
+    font-style: italic; font-weight: 300;
+    font-size: clamp(28px, 4.4vw, 48px);
+    color: rgba(110, 160, 180, 0.3);
+    white-space: nowrap; padding: 0 30px;
+  }
+  .ribbon-track span::after { content: "◆"; font-size: 10px; color: rgba(0, 221, 200, 0.4); margin-left: 60px; font-style: normal; vertical-align: middle; }
+  .ribbon-fixed {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .ribbon-fixed span {
+    background: var(--bg-primary);
+    border: 1px solid rgba(0, 221, 200, 0.35);
+    border-radius: 100px;
+    padding: 11px 28px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--banner-title);
+    box-shadow: 0 0 36px rgba(0, 221, 200, 0.18);
+  }
+
+  /* Scroll progress — a raga string tightening across the top */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--cyan-electric), var(--cyan), var(--emerald), var(--sapphire));
+    box-shadow: 0 0 12px rgba(0, 221, 200, 0.5);
+    z-index: 50;
+  }
+
+  /* ============ BENTO PROOF WALL ============ */
+  .bento-section { padding: 72px 0; }
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+  }
+  .tile {
+    position: relative; overflow: hidden;
+    border-radius: 18px;
+    padding: 28px 30px;
+    border: 1px solid color-mix(in srgb, var(--tacc, var(--cyan)) 25%, transparent);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--tacc, var(--cyan)) 7%, transparent), color-mix(in srgb, var(--tacc, var(--cyan)) 2%, transparent));
+    transition: transform 0.28s ease-in-out, border-color 0.28s ease-in-out, box-shadow 0.28s ease-in-out;
+  }
+  .tile:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--tacc, var(--cyan)) 55%, transparent);
+    box-shadow: 0 10px 40px color-mix(in srgb, var(--tacc, var(--cyan)) 15%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) { .tile, .tile:hover { transform: none; transition: none; } }
+  .tile-claim { grid-column: span 4; grid-row: span 2; display: flex; flex-direction: column; justify-content: center; }
+  .tile-2 { grid-column: span 2; }
+  .tile-3 { grid-column: span 3; }
+  @media (max-width: 860px) {
+    .bento { grid-template-columns: 1fr 1fr; }
+    .tile-claim { grid-column: span 2; grid-row: auto; }
+    .tile-3 { grid-column: span 2; }
+    .tile-2 { grid-column: span 1; }
+  }
+  @media (max-width: 560px) {
+    .bento { grid-template-columns: 1fr; }
+    .tile-claim, .tile-2, .tile-3 { grid-column: span 1; }
+  }
+  .tile .t-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--tacc, var(--cyan)); display: block; margin-bottom: 10px;
+  }
+  .tile-claim h3 {
+    font-size: clamp(28px, 3.8vw, 44px); font-weight: 400; line-height: 1.12;
+    margin: 0 0 14px; color: var(--banner-title); text-wrap: balance;
+  }
+  .tile-claim p { margin: 0; color: var(--text-secondary); max-width: 46ch; font-size: 16.5px; }
+  .tile-claim p strong { color: var(--text-primary); font-weight: 500; }
+  .tile .t-num {
+    display: block;
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", Georgia, serif;
+    font-size: clamp(48px, 6vw, 72px); line-height: 1; font-weight: 300;
+    background: linear-gradient(135deg, var(--tacc, var(--cyan)), color-mix(in srgb, var(--tacc, var(--cyan)) 55%, white));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 6px;
+  }
+  .tile .t-desc { font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+  .tile .t-desc strong { color: var(--text-primary); font-weight: 500; }
+  .tile a.t-link { font-size: 13px; font-weight: 500; }
+
+  /* ============ PRESS TICKER ============ */
+  .ticker {
+    position: relative;
+    border-top: 1px solid rgba(0, 221, 200, 0.1);
+    border-bottom: 1px solid rgba(0, 221, 200, 0.1);
+    background: rgba(4, 11, 20, 0.6);
+    overflow: hidden;
+    padding: 16px 0;
+    margin-top: 72px;
+  }
+  .ticker-track {
+    display: flex; gap: 0; width: max-content;
+    animation: tick 36s linear infinite;
+  }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+  .ticker span {
+    font-size: 12.5px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--text-secondary); white-space: nowrap; padding: 0 28px;
+  }
+  .ticker span::after { content: "◆"; color: var(--cyan); font-size: 8px; margin-left: 56px; opacity: 0.6; }
+
+  /* ============ PAPERS (THE HEADLINE ACT) — arrow carousel ============ */
+  .carousel { position: relative; }
+  .papers {
+    display: flex; gap: 22px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 6px 4px 22px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--separator) transparent;
+  }
+  @media (prefers-reduced-motion: reduce) { .papers { scroll-behavior: auto; } }
+  .papers .paper {
+    flex: 0 0 min(86%, 620px);
+    scroll-snap-align: start;
+  }
+  .car-arrows {
+    display: flex; gap: 10px;
+    position: absolute; right: 0; top: -74px;
+  }
+  .car-btn {
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 232, 255, 0.3);
+    color: var(--cyan-electric);
+    font-size: 20px; line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, opacity 0.2s;
+  }
+  .car-btn:hover { background: var(--bg-elevated); box-shadow: 0 0 20px rgba(0, 221, 200, 0.3); }
+  .car-btn:disabled { opacity: 0.25; cursor: default; box-shadow: none; }
+  @media (max-width: 720px) {
+    .car-arrows { position: static; justify-content: flex-end; margin-bottom: 14px; }
+  }
+  .paper {
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid color-mix(in srgb, var(--pacc) 22%, transparent);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--pacc) 7%, transparent), color-mix(in srgb, var(--pacc) 2%, transparent));
+    padding: 40px 44px 36px;
+    overflow: hidden;
+    transition: transform 0.28s ease-in-out, border-color 0.28s ease-in-out, box-shadow 0.28s ease-in-out;
+  }
+  .paper:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--pacc) 55%, transparent);
+    box-shadow: 0 12px 48px color-mix(in srgb, var(--pacc) 18%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) { .paper, .paper:hover { transform: none; transition: none; } }
+  .paper .ghost-year {
+    position: absolute; right: 18px; top: -34px;
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", Georgia, serif;
+    font-size: clamp(120px, 16vw, 210px);
+    font-weight: 300; line-height: 1;
+    color: color-mix(in srgb, var(--pacc) 9%, transparent);
+    user-select: none; pointer-events: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .paper-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 14px; }
+  .venue-badge {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--pacc);
+    border: 1px solid color-mix(in srgb, var(--pacc) 35%, transparent);
+    background: color-mix(in srgb, var(--pacc) 10%, transparent);
+    border-radius: 100px; padding: 4px 13px;
+  }
+  .latest-badge {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--bg-void);
+    background: linear-gradient(90deg, var(--cyan-electric), var(--cyan), var(--emerald));
+    border-radius: 100px; padding: 5px 14px;
+    box-shadow: 0 0 20px rgba(0, 221, 200, 0.45);
+  }
+  .paper h3 {
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(25px, 3.4vw, 36px);
+    line-height: 1.15;
+    margin: 0 0 12px; max-width: 24ch;
+    color: var(--banner-title);
+    text-wrap: balance;
+    position: relative;
+  }
+  .paper p { margin: 0 0 20px; color: var(--text-secondary); max-width: 66ch; position: relative; }
+  .metric-row { display: flex; flex-wrap: wrap; gap: 26px 44px; margin: 0 0 20px; position: relative; }
+  .metric b {
+    display: block;
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", Georgia, serif;
+    font-size: 38px; line-height: 1.05; font-weight: 300;
+    color: var(--pacc);
+    font-variant-numeric: tabular-nums;
+  }
+  .metric span {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .paper .links { display: flex; flex-wrap: wrap; gap: 18px; position: relative; }
+  .paper .links a { font-size: 14px; font-weight: 500; }
+  .paper .links .soon { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-tertiary); align-self: center; }
+
+  .support-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px; margin-top: 26px;
+  }
+  .support-card {
+    border-radius: 16px; padding: 26px 28px;
+    border: 1px solid rgba(18, 196, 158, 0.2);
+    background: linear-gradient(135deg, rgba(18, 196, 158, 0.06), rgba(18, 196, 158, 0.015));
+  }
+  .support-card .k {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--sea); display: block; margin-bottom: 8px;
+  }
+  .support-card h4 { font-size: 17.5px; font-weight: 500; margin: 0 0 6px; color: var(--banner-title); }
+  .support-card p { font-size: 14.5px; margin: 0; color: var(--text-secondary); }
+  .support-card a { font-size: 13.5px; font-weight: 500; }
+
+  .venture-feature {
+    margin-top: 44px;
+    display: flex; flex-wrap: wrap; gap: 30px 50px; align-items: center;
+    background: linear-gradient(120deg, rgba(0, 232, 255, 0.08), rgba(16, 184, 122, 0.06), rgba(46, 138, 219, 0.05));
+    border: 1px solid rgba(0, 232, 255, 0.3);
+    border-radius: 20px; padding: 40px 44px;
+    box-shadow: 0 0 56px rgba(0, 221, 200, 0.1);
+  }
+  .venture-info { flex: 1 1 420px; }
+  .venture-info h3 {
+    font-size: clamp(26px, 3.4vw, 38px); font-weight: 400;
+    margin: 14px 0 12px; color: var(--banner-title); text-wrap: balance;
+  }
+  .venture-info p { margin: 0 0 16px; color: var(--text-secondary); max-width: 58ch; }
+  .venture-info a { font-size: 14px; font-weight: 500; }
+  .venture-nums { display: flex; gap: 36px; flex: 0 1 auto; }
+  .venture-nums .vn b {
+    display: block;
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", Georgia, serif;
+    font-size: 56px; line-height: 1; font-weight: 300;
+    background: linear-gradient(135deg, var(--cyan-electric), var(--cyan), var(--emerald));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    font-variant-numeric: tabular-nums;
+  }
+  .venture-nums .vn span {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    background: rgba(42, 235, 194, 0.1); color: var(--good);
+    border: 1px solid rgba(42, 235, 194, 0.25);
+    padding: 4px 12px; border-radius: 100px;
+  }
+  .venture-strip .venture-text { font-size: 14px; color: var(--text-secondary); flex: 1; min-width: 260px; }
+  .venture-strip a { font-size: 13.5px; font-weight: 500; white-space: nowrap; }
+
+  /* ============ TRACKLIST ============ */
+  .big-count {
+    position: absolute; right: 0; top: 30px;
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", Georgia, serif;
+    font-size: clamp(140px, 20vw, 260px); line-height: 1; font-weight: 300;
+    color: rgba(16, 184, 122, 0.08);
+    user-select: none; pointer-events: none;
+  }
+  .collections { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; position: relative; }
+  .collection {
+    border-radius: 16px; padding: 26px 26px 20px;
+    background: linear-gradient(135deg, rgba(16, 184, 122, 0.06), rgba(16, 184, 122, 0.02));
+    border: 1px solid rgba(16, 184, 122, 0.25);
+    transition: transform 0.28s ease-in-out, border-color 0.28s ease-in-out;
+  }
+  .collection:hover { transform: translateY(-3px); border-color: rgba(16, 184, 122, 0.5); }
+  @media (prefers-reduced-motion: reduce) { .collection, .collection:hover { transform: none; transition: none; } }
+  .collection h3 { font-size: 19px; font-weight: 500; margin: 0 0 2px; color: var(--banner-title); }
+  .collection .count {
+    font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sea); margin: 0 0 16px;
+  }
+  .tracks { list-style: none; margin: 0; padding: 0; counter-reset: track; }
+  .tracks li {
+    counter-increment: track;
+    display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap;
+    padding: 8px 0; border-top: 1px solid var(--separator);
+    font-size: 15px;
+  }
+  .tracks li::before {
+    content: counter(track, decimal-leading-zero);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11.5px; color: var(--emerald); min-width: 22px; opacity: 0.8;
+  }
+  .tracks a { color: var(--text-primary); text-decoration: none; border-bottom: 1px solid rgba(16, 184, 122, 0.3); }
+  .tracks a:hover { color: var(--cyan-electric); border-bottom-color: var(--cyan-electric); }
+  .tracks a::after { content: " ▶"; font-size: 9px; color: var(--emerald); }
+  .tracks .note { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+  .album-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .album-link {
+    font-size: 13.5px; font-weight: 500;
+    border: 1px solid rgba(16, 184, 122, 0.35); border-radius: 100px;
+    padding: 9px 20px; text-decoration: none;
+    color: var(--good); background: rgba(16, 184, 122, 0.07);
+  }
+  .album-link:hover { background: rgba(16, 184, 122, 0.15); color: var(--good); }
+  .album-link span { color: var(--text-secondary); font-weight: 300; }
+
+  /* ============ RASA TABLE ============ */
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid rgba(18, 196, 158, 0.25);
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(18, 196, 158, 0.05), rgba(18, 196, 158, 0.01));
+  }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 15px; }
+  th {
+    font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    text-align: left; color: var(--sea);
+    padding: 15px 18px; border-bottom: 1px solid var(--separator);
+  }
+  td { padding: 12px 18px; border-bottom: 1px solid var(--separator); vertical-align: top; color: var(--text-secondary); font-weight: 300; }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { font-weight: 500; white-space: nowrap; color: var(--text-primary); }
+  td:nth-child(2) {
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", Georgia, serif;
+    font-style: italic; font-size: 17px; color: var(--sea); white-space: nowrap;
+  }
+  .table-note { font-size: 13px; color: var(--text-tertiary); margin-top: 14px; max-width: 78ch; }
+
+  /* ============ PRESS ============ */
+  .press-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .press-card {
+    background: linear-gradient(135deg, rgba(86, 200, 216, 0.06), rgba(86, 200, 216, 0.02));
+    border: 1px solid rgba(86, 200, 216, 0.22);
+    border-radius: 16px; padding: 24px;
+    display: flex; flex-direction: column; gap: 9px;
+    transition: transform 0.28s ease-in-out, border-color 0.28s ease-in-out;
+  }
+  .press-card:hover { transform: translateY(-3px); border-color: rgba(86, 200, 216, 0.5); }
+  @media (prefers-reduced-motion: reduce) { .press-card, .press-card:hover { transform: none; transition: none; } }
+  .press-card .outlet {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--aqua);
+  }
+  .press-card h3 {
+    font-family: "Cormorant Garamond", Cormorant, Didot, "Bodoni 72", Georgia, serif;
+    font-size: 21px; font-weight: 400; margin: 0; line-height: 1.3;
+    color: var(--banner-title);
+  }
+  .press-card p { font-size: 14.5px; color: var(--text-secondary); margin: 0; flex: 1; }
+  .press-card a { font-size: 13.5px; font-weight: 500; }
+  .recog-strip { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .recog {
+    font-size: 12.5px; font-weight: 500;
+    border: 1px solid var(--separator); border-radius: 100px;
+    background: var(--bg-card);
+    padding: 8px 16px; color: var(--text-secondary);
+  }
+
+  /* ============ STORY (MUSIC PROFILE, at the bottom) ============ */
+  .story-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, #060E1C 100%);
+  }
+  .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+  .timeline::before {
+    content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 1px;
+    background: linear-gradient(180deg, var(--cyan), var(--emerald), var(--sapphire));
+    opacity: 0.35;
+  }
+  .timeline li { position: relative; padding: 0 0 36px 42px; }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before {
+    content: ""; position: absolute; left: 0; top: 7px;
+    width: 15px; height: 15px; border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--cyan);
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 221, 200, 0.25);
+  }
+  .timeline .when {
+    font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--cyan);
+    display: block; margin-bottom: 5px;
+  }
+  .timeline h3 { font-size: 21px; font-weight: 500; margin: 0 0 6px; color: var(--banner-title); }
+  .timeline p { margin: 0; color: var(--text-secondary); max-width: 62ch; }
+  .timeline .milestone {
+    background: linear-gradient(135deg, rgba(0, 221, 200, 0.07), rgba(0, 221, 200, 0.02));
+    border: 1px solid rgba(0, 221, 200, 0.3);
+    border-radius: 14px; padding: 22px 24px; margin-left: -2px;
+    box-shadow: 0 0 32px rgba(0, 221, 200, 0.08);
+  }
+  .timeline .milestone p { color: var(--text-primary); }
+  .timeline .milestone .badge { margin-bottom: 12px; }
+
+  .collab {
+    border-left: 2px solid var(--cyan);
+    padding: 6px 0 6px 22px;
+    max-width: 64ch;
+    color: var(--text-secondary);
+    font-size: 16px;
+  }
+  .collab strong { color: var(--text-primary); font-weight: 500; }
+
+  /* ============ CTA ============ */
+  .cta-box {
+    background: linear-gradient(160deg, #060E1C 0%, #0B1A2C 55%, #102430 100%);
+    border: 1px solid rgba(0, 221, 200, 0.15);
+    border-radius: 20px;
+    padding: 56px 40px;
+    text-align: center;
+  }
+  .cta-box .eyebrow { color: var(--sea); }
+  .cta-box h2 { max-width: 24ch; margin: 0 auto 14px; }
+  .cta-box p { color: var(--text-secondary); max-width: 56ch; margin: 0 auto 32px; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .btn {
+    font-size: 15px; font-weight: 600;
+    padding: 13px 28px; border-radius: 100px;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--cyan-electric), var(--cyan), var(--emerald));
+    color: var(--bg-void);
+    box-shadow: 0 0 28px rgba(0, 221, 200, 0.4);
+  }
+  .btn-primary:hover { box-shadow: 0 0 44px rgba(0, 221, 200, 0.6); color: var(--bg-void); }
+  .btn-ghost { border: 1px solid rgba(0, 221, 200, 0.4); color: var(--cyan); }
+  .btn-ghost:hover { background: rgba(0, 221, 200, 0.08); color: var(--cyan-electric); }
+  footer {
+    padding: 36px 0 48px;
+    font-size: 13px; color: var(--text-tertiary);
+    display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
+  }
+  footer a { color: var(--text-secondary); }
+</style>
+
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <canvas class="hero-canvas" id="orbCanvas" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <p class="eyebrow"><span class="live-dot"></span>Sreekanth Gopi &middot; Founder, NeuroHeart.AI</p>
+    <h1 class="display">
+      <span class="kw" style="--d:0">He</span> <span class="kw" style="--d:1">composes</span> <span class="kw" style="--d:2">with</span> <span class="kw grad" style="--d:3">sound,</span><br />
+      <span class="kw grad" style="--d:4">code,</span> <span class="kw" style="--d:5">and</span> <span class="kw grad" style="--d:6">possibility.</span>
+    </h1>
+    <p class="hero-sub kw" style="--d:8"><strong>Musician. AI innovator. Engineer. Founder.</strong><br />Building experiences where human creativity meets intelligent technology.</p>
+    <div class="wave-strip" aria-hidden="true">
+      <span class="wave-frag kw" style="--d:10">Voice</span>
+      <span class="wave-frag kw" style="--d:11">Emotion</span>
+      <span class="wave-frag kw" style="--d:12">Data</span>
+      <span class="wave-frag kw" style="--d:13">Intelligence</span>
+      <span class="wave-frag kw last" style="--d:14">Experience</span>
+    </div>
+    <div class="cta-actions kw" style="--d:15; justify-content: flex-start; margin-top: 40px;">
+      <a class="btn btn-primary" href="#music">Hear the Work</a>
+      <a class="btn btn-ghost" href="#story">Enter the Story</a>
+      <a class="btn btn-ghost" href="#ventures">Explore Ventures</a>
+    </div>
+  </div>
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track" id="ribbonTrack">
+      <span>Artist</span><span>Music Engineer</span><span>AI Researcher</span><span>Product Builder</span><span>Founder</span><span>Storyteller</span>
+    </div>
+    <div class="ribbon-fixed"><span>Different disciplines. One creative frequency.</span></div>
+  </div>
+</header>
+
+<!-- ================= BENTO PROOF WALL ================= -->
+<section class="bento-section s-cyan" id="proof">
+  <div class="wrap">
+    <div class="bento">
+      <div class="tile tile-claim reveal" style="--tacc: var(--cyan);">
+        <span class="t-label">The Record &middot; 2023&ndash;2026</span>
+        <h3 class="display">273 AI-music papers surveyed in 2023. Zero could generate a raga. Six publications since — all his.</h3>
+        <p>Peer-reviewed at <strong>AIMC (UK), ICNMC (Italy), and the IJMSTA journal</strong>; a system independently verified at <strong>98% raga fidelity</strong> by a classical music teacher; an <strong>IRB-approved biosignal study</strong>; a sixth paper under journal review as of June 2026 — while composing, releasing, and performing on three continents.</p>
+      </div>
+      <div class="tile tile-2 reveal" style="--tacc: var(--sapphire);">
+        <span class="t-label">Research</span>
+        <span class="t-num" data-count="6">0</span>
+        <p class="t-desc"><strong>Publications in 3 years</strong> — newest: agentic AI prompt engineering for music, under journal review.</p>
+      </div>
+      <div class="tile tile-2 reveal" style="--tacc: var(--cyan-electric);">
+        <span class="t-label">Fidelity</span>
+        <span class="t-num"><span data-count="98">0</span>%</span>
+        <p class="t-desc"><strong>Raga adherence</strong> from his GPT-4 system — verified by an Indian classical music teacher.</p>
+      </div>
+      <div class="tile tile-3 reveal" style="--tacc: var(--emerald);">
+        <span class="t-label">The Startup</span>
+        <span class="t-num" data-count="360">0</span>
+        <p class="t-desc"><strong>Songs entering production</strong> (12 ragas &times; 30) — RagaGen, startup in formation. <a class="t-link" href="https://neuroheart.ai/ragagen">neuroheart.ai/ragagen &rarr;</a></p>
+      </div>
+      <div class="tile tile-3 reveal" style="--tacc: var(--sea);">
+        <span class="t-label">The Stage &middot; Aug 2026</span>
+        <span class="t-num display" style="font-size: clamp(34px, 4vw, 48px);">Mano, live</span>
+        <p class="t-desc"><strong>Selected by audition</strong> to sing with the legendary playback singer in Atlanta — while the papers publish.</p>
+      </div>
+      <div class="tile tile-2 reveal" style="--tacc: var(--aqua);">
+        <span class="t-label">Featured By</span>
+        <p class="t-desc" style="font-size: 14.5px;"><strong>USA Today &middot; The Hindu &middot; Times Square</strong> — the raga-AI story, told coast to coast.</p>
+      </div>
+      <div class="tile tile-2 reveal" style="--tacc: var(--emerald);">
+        <span class="t-label">The Catalog</span>
+        <span class="t-num" data-count="27">0</span>
+        <p class="t-desc"><strong>Released compositions</strong> across three collections. <a class="t-link" href="#music">Hear the list &darr;</a></p>
+      </div>
+      <div class="tile tile-2 reveal" style="--tacc: var(--sapphire);">
+        <span class="t-label">The Product</span>
+        <p class="t-desc" style="font-size: 14.5px;"><strong>NeuroHeart on iOS + Apple Watch</strong> — research you can hear, sensing the nervous system and answering with sound. <a class="t-link" href="https://neuroheart.ai/">Explore &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE PAPERS — HEADLINE ACT ================= -->
+<section id="research" class="s-sapphire">
+  <div class="wrap">
+    <p class="eyebrow reveal">The Research &middot; Newest First</p>
+    <h2 class="display reveal">Teaching machines the raga, one paper at a time</h2>
+    <p class="lede reveal">Six publications in three years, in a field that had zero papers when he started — his own 2023 survey of 273 AI-music papers documents it. One obsession runs through all of them: can AI hold the grammar of a 5,000-year-old melodic system without dropping a single gamaka?</p>
+
+    <div class="carousel reveal">
+      <div class="car-arrows">
+        <button class="car-btn" id="carPrev" aria-label="Previous paper">&#8249;</button>
+        <button class="car-btn" id="carNext" aria-label="Next paper">&#8250;</button>
+      </div>
+      <div class="papers" id="paperTrack">
+      <article class="paper" style="--pacc: var(--good);">
+        <span class="ghost-year">2026</span>
+        <div class="paper-head">
+          <span class="latest-badge">Just Submitted</span>
+          <span class="venue-badge">Journal &middot; Under Review &middot; June 2026</span>
+        </div>
+        <h3>Agentic AI Prompt Engineering for Generative Music</h3>
+        <p>The newest frontier: how agentic systems should engineer prompts for generative music models — submitted for journal review last month. The research line is not history; it is live, and it is accelerating.</p>
+        <div class="metric-row">
+          <div class="metric"><b>6th</b><span>Publication in 3 years</span></div>
+          <div class="metric"><b>2026</b><span>Submitted June</span></div>
+        </div>
+        <div class="links"><span class="soon">Under review</span></div>
+      </article>
+
+      <article class="paper" style="--pacc: var(--cyan-electric);">
+        <span class="ghost-year">2026</span>
+        <div class="paper-head">
+          <span class="latest-badge">Latest Published</span>
+          <span class="venue-badge">ICNMC 2026 &middot; Published under Neuroheart AI</span>
+        </div>
+        <h3>RagaGen: Agentic AI Orchestration for Raga Music Generation</h3>
+        <p>Five specialized AI agents — affect analysis, raga selection, composition planning, coherence verification, orchestration — that read the emotion in a conversation and answer with raga-true music instructions. The verifier agent catches degraded phrases and repairs them before a single note ships: verification-in-the-loop as the guardian of a living tradition.</p>
+        <div class="metric-row">
+          <div class="metric"><b>5</b><span>Specialized agents</span></div>
+          <div class="metric"><b>96.7%</b><span>Violation detection</span></div>
+          <div class="metric"><b>95.9%</b><span>Repaired in one pass</span></div>
+        </div>
+        <div class="links"><span class="soon">In proceedings &middot; ICNMC 2026</span></div>
+      </article>
+
+      <article class="paper reveal" style="--pacc: var(--cyan);">
+        <span class="ghost-year">2025</span>
+        <div class="paper-head"><span class="venue-badge">IJMSTA Journal &middot; Peer-Reviewed</span></div>
+        <h3>RagaGEN: Fine-Tuning MusicGen for Indian Classical Raga Melodies</h3>
+        <p>The first autoregressive music language model fine-tuned for raga generation. Meta&rsquo;s MusicGen, retrained on a hand-built Jog Raga corpus, held the scale across 7,900 analyzed notes — and its melodies became a published instrumental for violin, cello, santoor, and piano.</p>
+        <div class="metric-row">
+          <div class="metric"><b>96%</b><span>Scale adherence</span></div>
+          <div class="metric"><b>7,900</b><span>Notes analyzed</span></div>
+        </div>
+        <div class="links">
+          <a href="https://doi.org/10.48293/IJMSTA-128">DOI &middot; 10.48293/IJMSTA-128 &rarr;</a>
+        </div>
+      </article>
+
+      <article class="paper reveal" style="--pacc: var(--sapphire);">
+        <span class="ghost-year">2025</span>
+        <div class="paper-head"><span class="venue-badge">ICNMC &middot; Italy</span></div>
+        <h3>Harmonizing Tradition and Technology</h3>
+        <p>The RagaGEN research presented on the international stage — the International Conference on New Music Concepts in Italy — carrying a Kerala guru&rsquo;s lineage into Europe&rsquo;s AI-music community.</p>
+        <div class="metric-row">
+          <div class="metric"><b>3</b><span>European conferences</span></div>
+        </div>
+        <div class="links">
+          <a href="https://www.ijmsta.com/archive_issue.php?volume=7&issue=1">Journal archive &rarr;</a>
+        </div>
+      </article>
+
+      <article class="paper reveal" style="--pacc: var(--emerald);">
+        <span class="ghost-year">2024</span>
+        <div class="paper-head"><span class="venue-badge">AIMC 2024 &middot; United Kingdom</span></div>
+        <h3>Reviving Traditional Raga Music: Melody Generation Using GPT-4</h3>
+        <p>Melodies encoded as mathematics, GPT-4 steered by chain-of-thought prompts carrying the raga&rsquo;s full grammar — arohana, vadi&ndash;samvadi, tala, gamakas. The generated songs were verified by an Indian classical music teacher and published as the custom model JogRagaGPT.</p>
+        <div class="metric-row">
+          <div class="metric"><b>98%</b><span>Raga adherence</span></div>
+          <div class="metric"><b>20</b><span>Studio vocal tracks in corpus</span></div>
+        </div>
+        <div class="links">
+          <a href="https://aimc2024.pubpub.org/pub/nos17cil/release/1">Read the paper &rarr;</a>
+        </div>
+      </article>
+
+      <article class="paper reveal" style="--pacc: var(--aqua);">
+        <span class="ghost-year">2023</span>
+        <div class="paper-head"><span class="venue-badge">AIMC 2023 &middot; United Kingdom</span></div>
+        <h3>Introductory Studies on Raga Multi-track Music Generation</h3>
+        <p>Where it all began: a survey of 273 AI-music papers found not one generating raga. This paper named the gap, mapped LSTM and Transformer architectures against Indian classical form, and proposed RMMM — a novel raga multi-track architecture.</p>
+        <div class="metric-row">
+          <div class="metric"><b>273</b><span>Papers surveyed</span></div>
+          <div class="metric"><b>0</b><span>On raga generation</span></div>
+        </div>
+        <div class="links">
+          <a href="https://aimc2023.pubpub.org/pub/4pcwrxuo">Read the paper &rarr;</a>
+        </div>
+      </article>
+      </div>
+    </div>
+
+    <div class="support-grid reveal">
+      <div class="support-card">
+        <span class="k">The Corpus</span>
+        <h4>A composer builds his own training data</h4>
+        <p>No Jog Raga vocal dataset existed — so he made one. Twenty studio vocal tracks, five of them his original compositions, cleaned through a four-stage MIDI pipeline.</p>
+      </div>
+      <div class="support-card">
+        <span class="k">The Lab &middot; IRB-Approved</span>
+        <h4>Raga Hindol under EEG &amp; HRV sensors</h4>
+        <p>In the CM-II study, raga inside a 45-minute meditation shifted heart coherence significantly (p&nbsp;=&nbsp;0.0077) — the ancient claim, rendered as physiological data. <a href="https://peer.asee.org/exploring-the-impact-of-cm-ii-meditation-on-stress-levels-in-college-students-through-hrv-analysis">Read the study &rarr;</a></p>
+      </div>
+    </div>
+
+    <div class="venture-feature reveal" id="ventures">
+      <div class="venture-info">
+        <span class="badge">RagaGen &middot; Startup in Formation</span>
+        <h3 class="display">Next: 360 songs. Twelve ragas. One startup.</h3>
+        <p>The research is becoming a company. RagaGen — the AI Raga Music Generator — enters production on a 360-song core catalog (12 ragas &times; 30 songs each), the proprietary training corpus for the world&rsquo;s first raga-native AI platform. Sreekanth is Co-Founder &amp; Chief AI Music Architect.</p>
+        <a href="https://neuroheart.ai/ragagen">neuroheart.ai/ragagen &rarr;</a>
+      </div>
+      <div class="venture-nums">
+        <div class="vn"><b>360</b><span>Songs in production</span></div>
+        <div class="vn"><b>12</b><span>Ragas</span></div>
+        <div class="vn"><b>30</b><span>Songs per raga</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ================= RELEASED MUSIC ================= -->
+<section id="music" class="s-emerald">
+  <span class="big-count" aria-hidden="true">27</span>
+  <div class="wrap">
+    <p class="eyebrow reveal">The Releases</p>
+    <h2 class="display reveal">Twenty-seven released works</h2>
+    <p class="lede reveal">More than fifty songs composed over 15+ years; twenty-seven released across three collections — Malayalam originals, devotional mantras, and the Synarchy meditation series that seeded his research on music and the nervous system. He bootstrapped $150K of his own to produce these albums with professional playback singers.</p>
+    <div class="collections">
+      <div class="collection reveal">
+        <h3>Malayalam &amp; Original Songs</h3>
+        <p class="count">13 works</p>
+        <ol class="tracks">
+          <li><a href="https://www.youtube.com/watch?v=gWZB9higydo">Uyire En Uyire</a></li>
+          <li><a href="https://www.youtube.com/watch?v=KAG75od7cTQ">Mizhiyazhaku</a></li>
+          <li><a href="https://www.youtube.com/watch?v=_4MU421BUDM">Dasarada Nandana</a></li>
+          <li><a href="https://www.youtube.com/watch?v=XmgjlDJkCNk">Enthithrathaamasam Kanna</a></li>
+          <li><a href="https://www.youtube.com/watch?v=cfbPPZYGEnE">Pranante Prabhavani Nadam</a></li>
+          <li><a href="https://www.youtube.com/watch?v=MYX7FwQ84lM">Nenjinullil</a></li>
+          <li><a href="https://www.youtube.com/watch?v=ncFXBlTot9Q">Mazhakattil</a> <span class="note">also on screen</span></li>
+          <li><a href="https://www.youtube.com/watch?v=KxzRyj4ct1g">Raama Raama</a></li>
+          <li><a href="https://www.youtube.com/watch?v=rwpSZzYRi3g">Unaranini</a></li>
+          <li><a href="https://www.youtube.com/watch?v=I_5AYuTm1rs">Yadhukula Kamboji</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Ngi094w9KCs">Aninoopuram</a></li>
+          <li>Govinda Namangal</li>
+          <li><a href="https://www.youtube.com/watch?v=SiuQgb36dak">Pavanaguru</a> <span class="note">traditional, remixed</span></li>
+        </ol>
+      </div>
+      <div class="collection reveal">
+        <h3>Devotional Songs, Mantras &amp; Chants</h3>
+        <p class="count">6 works</p>
+        <ol class="tracks">
+          <li><a href="https://www.youtube.com/watch?v=SyIXnBHG2KM">Mahalakshmi Kavach</a></li>
+          <li>Swaminarayan Dhun</li>
+          <li>Hare Krishna Mahamantra</li>
+          <li>Om Bhur Bhuvah Svaha — Gayathri Mantra</li>
+          <li>Gurur Brahma — Guru Mantra</li>
+          <li>Vallalar — Arut Siva Nerisaar / Jyoti Agaval</li>
+        </ol>
+      </div>
+      <div class="collection reveal">
+        <h3>Instrumental &amp; Meditation</h3>
+        <p class="count">8 works &middot; The Synarchy series</p>
+        <ol class="tracks">
+          <li>Synarchy Meditation Music — Flute / Heal</li>
+          <li>Synarchy Meditation Music — Flute / Sad</li>
+          <li>Synarchy Meditation Happy Music</li>
+          <li>Synarchy Sweet Sleep Long Music</li>
+          <li>Synarchy Emotional Healing Music</li>
+          <li>Synarchy Relaxing Music</li>
+          <li>Synarchy Instrumental — Journey into Goloka</li>
+          <li>Meditation Music</li>
+        </ol>
+      </div>
+    </div>
+    <div class="album-row reveal">
+      <a class="album-link" href="https://www.youtube.com/watch?v=_4MU421BUDM&amp;list=PL37XKzuJyxMDlPGiTeqJvpu7p2agc502l">Vishnudalam <span>&middot; Musical Album &middot; full playlist</span></a>
+      <a class="album-link" href="https://www.youtube.com/watch?v=gWZB9higydo&amp;list=PL37XKzuJyxMBKp-dPAW3GhuEG-vAA_c3m">Love Album <span>&middot; 5 songs &middot; full playlist</span></a>
+      <a class="album-link" href="https://www.youtube.com/@synarchymusic236">Synarchy Music <span>&middot; the channel</span></a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ================= RAGA AS MEDICINE ================= -->
+<section id="medicine" class="s-sea">
+  <div class="wrap">
+    <p class="eyebrow reveal">Raga as Medicine</p>
+    <h2 class="display reveal">Melody, prescribed</h2>
+    <p class="lede reveal">Raga theory has always claimed specific melodies evoke specific emotional states — the Navarasa doctrine. His published work treats that claim as testable: HRV and EEG shifts, measured in the lab, while raga plays.</p>
+    <div class="table-scroll reveal">
+      <table>
+        <thead>
+          <tr><th>Raga</th><th>Rasa</th><th>Emotional Character</th><th>Documented Effect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Jog</td><td>Shringara</td><td>Romantic, mystical</td><td>Induces introspection and emotional openness; eases anxiety</td></tr>
+          <tr><td>Todi</td><td>Karuna</td><td>Pensive, melancholic</td><td>Supports grief processing and emotional regulation</td></tr>
+          <tr><td>Ahir Bhairav</td><td>Shanta</td><td>Devotional, peaceful</td><td>Lowers stress; promotes meditative focus</td></tr>
+          <tr><td>Hamsanandi</td><td>Adbhuta</td><td>Serene, meditative</td><td>Aids mindfulness and cognitive clarity</td></tr>
+          <tr><td>Hindolam</td><td>Karuna / Adbhuta</td><td>Dreamy, haunting</td><td>Encourages emotional release; used in nighttime relaxation</td></tr>
+          <tr><td>Shubhapantuvarali</td><td>Karuna / Shanta</td><td>Devotional, melancholic</td><td>Deepens spiritual reflection; balances emotional intensity</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note reveal">Raga–rasa–therapy mapping from the RagaGEN journal publication (IJMSTA, 2025).</p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<div class="ticker" aria-hidden="true" style="margin-top: 0;">
+  <div class="ticker-track" id="tickerTrack">
+    <span>USA Today</span><span>The Hindu</span><span>Times Square</span><span>IAOTP 2025</span><span>ICNMC Italy</span><span>AIMC United Kingdom</span><span>Apple Podcasts</span><span>IJMSTA Journal</span><span>Kennesaw State AIET Lab</span>
+  </div>
+</div>
+
+<!-- ================= PRESS ================= -->
+<section id="press" class="s-aqua">
+  <div class="wrap">
+    <p class="eyebrow reveal">In the Press</p>
+    <h2 class="display reveal">The story, told by others</h2>
+    <div class="press-grid reveal" style="margin-top: 36px;">
+      <div class="press-card">
+        <span class="outlet">The Hindu &middot; 2023</span>
+        <h3>&ldquo;A rare jugalbandi between AI and Indian classical music&rdquo;</h3>
+        <p>India&rsquo;s newspaper of record covers the raga-generation research — the tradition&rsquo;s own press taking notice.</p>
+        <a href="https://www.thehindu.com/entertainment/music/get-ready-for-a-rare-jugalbandi-between-ai-and-indian-classical-music/article67403753.ece">Read the feature &rarr;</a>
+      </div>
+      <div class="press-card">
+        <span class="outlet">USA Today &middot; 2025</span>
+        <h3>&ldquo;From Raga to RAG&rdquo;</h3>
+        <p>Sreekanth&rsquo;s AI path to advance mental wellness and attention — heritage and frontier engineering in one arc.</p>
+        <a href="https://www.usatoday.com/story/special/contributor-content/2025/05/15/from-raga-to-rag-sreekanth-gopis-ai-path-to-advance-mental-wellness-and-attention/83651997007/">Read the feature &rarr;</a>
+      </div>
+      <div class="press-card">
+        <span class="outlet">Apple Podcasts</span>
+        <h3>&ldquo;From Meditation to Music: Exploring AI&rsquo;s Boundless Potential&rdquo;</h3>
+        <p>A conversation on music, meditation, and machine intelligence, on the Rx for Biotech podcast.</p>
+        <a href="https://podcasts.apple.com/us/podcast/from-meditation-to-music-exploring-ais-boundless-potential/id1511978581?i=1000680917425">Listen &rarr;</a>
+      </div>
+      <div class="press-card">
+        <span class="outlet">Neuworldz &middot; Podcast &amp; Panel</span>
+        <h3>The Harmony of Human and Machine</h3>
+        <p>On AI, tradition, and wellness — from banking to brainwaves, with Shrravonii Paul.</p>
+        <a href="https://www.youtube.com/watch?v=xGzAvnx-Iog">Watch &rarr;</a>
+      </div>
+    </div>
+    <div class="recog-strip reveal">
+      <span class="recog">&#127908; Presented &middot; ICNMC Italy &amp; AIMC UK</span>
+      <span class="recog">&#127775; Times Square billboard feature</span>
+      <span class="recog">&#127942; IAOTP Top Prompt Engineer &amp; AI Innovator 2025</span>
+      <span class="recog">&#127942; Global Top 30 Trailblazer</span>
+      <span class="recog">&#127942; Top 50 Leaders to Follow</span>
+      <span class="recog">&#129351; Intel Transatlantic AI Hackathon — 1st Place</span>
+      <span class="recog">&#129352; Llama-2 Hackathon — 2nd of 1,700+</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ================= THE STORY — MUSIC PROFILE (closing act) ================= -->
+<section id="story" class="s-cyan story-section">
+  <div class="wrap">
+    <p class="eyebrow reveal">The Music Profile &middot; Where the Research Comes From</p>
+    <h2 class="display reveal">A voice trained in the old way</h2>
+    <p class="lede reveal">Every metric above stands on four decades of musicianship. Before the models and the papers, there was a boy in Kerala learning sargams the way they have been passed down for centuries — voice to voice, guru to student.</p>
+    <ol class="timeline">
+      <li class="reveal">
+        <span class="when">Kerala &middot; Age 10</span>
+        <h3>Carnatic training under a legend</h3>
+        <p>Formal Carnatic training from age ten under his late guru, Oachira Balakrishnan Sir — former Principal of RLV College of Music and Fine Arts and a revered figure in Kerala&rsquo;s Carnatic tradition. Prize-winning performances followed throughout his school years.</p>
+      </li>
+      <li class="reveal">
+        <span class="when">Engineering years &middot; Coimbatore</span>
+        <h3>College lead singer</h3>
+        <p>Lead singer of his engineering college, taking first prize and a cash award for his rendition of Sonu Nigam&rsquo;s &ldquo;Tu&rdquo; — among many competition wins across school and college.</p>
+      </li>
+      <li class="reveal">
+        <span class="when">Dubai &middot; 2000s</span>
+        <h3>A hundred stages in the Gulf</h3>
+        <p>While studying Hindustani music for several years in Dubai, he sang at roughly 100 functions — including programs featuring K.&nbsp;J.&nbsp;Yesudas, K.&nbsp;S.&nbsp;Chithra, Vijay Yesudas, and playback singer and music director M.&nbsp;G.&nbsp;Sreekumar.</p>
+      </li>
+      <li class="reveal">
+        <span class="when">Kerala</span>
+        <h3>His own band</h3>
+        <p>Back home, he led his own band, performing regularly at weddings and events across Kerala.</p>
+      </li>
+      <li class="reveal">
+        <span class="when">United States &middot; Present</span>
+        <h3>Singing on American stages</h3>
+        <p>For the past two years he has performed with a band of vocalists and musicians in the U.S., through cultural associations such as AMMA and GAMMA — including audition-based programs — and sang a Tamil devotional piece for a major Swami Ayyappa organization.</p>
+      </li>
+      <li class="reveal">
+        <span class="when">Atlanta, GA &middot; 2026</span>
+        <h3>Founded the Music Cafe band</h3>
+        <p>His own band, founded in Atlanta — live sets with a rotating circle of vocalists and musicians. <a href="https://www.instagram.com/reels/DbLdNM4snq7/">Watch the latest band reel &rarr;</a></p>
+      </li>
+      <li class="reveal">
+        <div class="milestone">
+          <span class="badge">Aug 2026 &middot; Atlanta</span>
+          <h3>Selected to sing with Mano — live</h3>
+          <p>Chosen through audition to perform alongside legendary playback singer Mano at his live concert in Atlanta, August 2026.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="collab reveal" style="margin-top: 56px;">The RagaGEN line of research is built with research collaborators <strong>Devananda Sreekanth</strong> and <strong>Femi Ojo</strong> at Kennesaw State University — with earlier foundations alongside <strong>Femi William</strong> — and continues today under <strong>Neuroheart AI</strong>.</p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section id="cta" class="s-sea" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <p class="eyebrow">Where This Is Heading</p>
+      <h2 class="display">Research you&rsquo;ll soon be able to hear</h2>
+      <p>The papers, the compositions, the biosignal studies — they converge in NeuroHeart: an AI wellness platform that senses the nervous system through Apple Watch biosignals and answers with personalized meditation. The raga is learning to listen back.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://neuroheart.ai/">Explore NeuroHeart.AI</a>
+        <a class="btn btn-ghost" href="https://neuro.neuroheart.ai/">Try the AI App</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>&copy; 2026 Sreekanth Gopi &middot; NeuroHeart.AI</span>
+  <span><a href="https://www.linkedin.com/in/s-gopi/">LinkedIn</a> &middot; <a href="https://neuroheart.ai/">neuroheart.ai</a></span>
+</footer>
+
+<script>
+  /* ============ PRESS TICKER — duplicate content for seamless loop ============ */
+  const track = document.getElementById("tickerTrack");
+  track.innerHTML += track.innerHTML;
+  const ribbonTrack = document.getElementById("ribbonTrack");
+  ribbonTrack.innerHTML += ribbonTrack.innerHTML;
+  ribbonTrack.innerHTML += ribbonTrack.innerHTML;
+
+  /* ============ PAPERS CAROUSEL ARROWS ============ */
+  const paperTrack = document.getElementById("paperTrack");
+  const carPrev = document.getElementById("carPrev");
+  const carNext = document.getElementById("carNext");
+  function paperStep() {
+    const c = paperTrack.querySelector(".paper");
+    return c ? c.getBoundingClientRect().width + 22 : 480;
+  }
+  carPrev.addEventListener("click", () => paperTrack.scrollBy({ left: -paperStep(), behavior: "smooth" }));
+  carNext.addEventListener("click", () => paperTrack.scrollBy({ left: paperStep(), behavior: "smooth" }));
+  function updateArrows() {
+    carPrev.disabled = paperTrack.scrollLeft < 10;
+    carNext.disabled = paperTrack.scrollLeft > paperTrack.scrollWidth - paperTrack.clientWidth - 10;
+  }
+  paperTrack.addEventListener("scroll", updateArrows, { passive: true });
+  window.addEventListener("resize", updateArrows);
+  updateArrows();
+
+  /* ============ SCROLL PROGRESS STRING ============ */
+  const progressBar = document.getElementById("progress");
+  function paintProgress() {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    progressBar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + "%";
+  }
+  addEventListener("scroll", paintProgress, { passive: true });
+  paintProgress();
+
+  /* ============ SCROLL REVEAL ============ */
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealEls = document.querySelectorAll(".reveal");
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    revealEls.forEach(el => el.classList.add("in"));
+  } else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  /* ============ COUNT-UP NUMBERS (bento) ============ */
+  const counters = document.querySelectorAll("[data-count]");
+  function runCount(el) {
+    const target = parseInt(el.dataset.count, 10);
+    if (reducedMotion) { el.textContent = target; return; }
+    const dur = 1200, t0 = performance.now();
+    (function step(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  if ("IntersectionObserver" in window && !reducedMotion) {
+    const cio = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { runCount(e.target); cio.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => cio.observe(el));
+  } else {
+    counters.forEach(el => el.textContent = el.dataset.count);
+  }
+
+  /* ============ HERO: ORB + SONAR RINGS + WAVEFORM ============
+     The app's signature radial orb (offset center, cyan→teal→emerald→ink)
+     with sonarPulse rings and a low waveform running the chart spectrum. */
+  const canvas = document.getElementById("orbCanvas");
+  const ctx = canvas.getContext("2d");
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  let w, h, t = 0;
+
+  function resize() {
+    w = canvas.width = canvas.offsetWidth * dpr;
+    h = canvas.height = canvas.offsetHeight * dpr;
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  const waveColors = [
+    "rgba(0, 232, 255, 0.16)",
+    "rgba(0, 221, 200, 0.14)",
+    "rgba(16, 184, 122, 0.12)",
+    "rgba(46, 138, 219, 0.12)"
+  ];
+
+  function drawFrame() {
+    ctx.clearRect(0, 0, w, h);
+
+    /* Orb — offset right of center like the app's orbGradient */
+    const ox = w * 0.78, oy = h * 0.34;
+    const drift = reducedMotion ? 0 : Math.sin(t * 0.18) * 14 * dpr;
+    const oR = Math.min(w, h) * 0.52;
+    const orb = ctx.createRadialGradient(ox + drift, oy, 0, ox + drift, oy, oR);
+    orb.addColorStop(0,    "rgba(0, 232, 255, 0.16)");
+    orb.addColorStop(0.28, "rgba(0, 221, 200, 0.09)");
+    orb.addColorStop(0.55, "rgba(16, 184, 122, 0.05)");
+    orb.addColorStop(1,    "rgba(4, 11, 20, 0)");
+    ctx.fillStyle = orb;
+    ctx.fillRect(0, 0, w, h);
+
+    /* Sonar rings — 4s pulse, expanding + fading */
+    const period = 4;
+    for (let k = 0; k < 3; k++) {
+      const phase = ((t / period) + k / 3) % 1;
+      const r = phase * oR * 1.05;
+      const alpha = (1 - phase) * 0.12;
+      ctx.beginPath();
+      ctx.arc(ox + drift, oy, Math.max(r, 1), 0, Math.PI * 2);
+      ctx.strokeStyle = "rgba(0, 221, 200, " + alpha.toFixed(3) + ")";
+      ctx.lineWidth = 1.2 * dpr;
+      ctx.stroke();
+    }
+
+    /* Waveform strings across the lower hero */
+    for (let s = 0; s < 4; s++) {
+      const baseY = h * (0.62 + s * 0.09);
+      ctx.beginPath();
+      for (let x = 0; x <= w; x += 6 * dpr) {
+        const amp = (3 + s * 1.8) * dpr;
+        const y = baseY + Math.sin(x / (150 * dpr) + t * (0.5 + s * 0.14) + s * 2) * amp
+                        * Math.sin(t * 0.24 + s);
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = waveColors[s];
+      ctx.lineWidth = 1.2 * dpr;
+      ctx.stroke();
+    }
+    t += 0.016;
+  }
+
+  if (reducedMotion) {
+    t = 1.2; drawFrame();          /* one composed static frame */
+  } else {
+    (function loop() { drawFrame(); requestAnimationFrame(loop); })();
+  }
+</script>
