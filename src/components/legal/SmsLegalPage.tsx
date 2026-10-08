@@ -1,7 +1,6 @@
 import Link from "next/link";
-import Footer from "@/components/layout/Footer";
 
-type LegalSection = {
+type SmsLegalSection = {
   title: string;
   paragraphs?: readonly string[];
   bullets?: readonly string[];
@@ -9,22 +8,28 @@ type LegalSection = {
   contact?: string;
 };
 
-type LegalPageProps = {
+type SmsLegalPageProps = {
   title: string;
   effectiveDate: string;
+  company: string;
+  website: string;
+  contactEmail: string;
   intro: readonly string[];
-  sections: readonly LegalSection[];
+  sections: readonly SmsLegalSection[];
 };
 
-export default function LegalPage({
+export default function SmsLegalPage({
   title,
   effectiveDate,
+  company,
+  website,
+  contactEmail,
   intro,
   sections,
-}: LegalPageProps) {
+}: SmsLegalPageProps) {
   return (
     <div className="min-h-screen bg-bg-primary text-text-primary">
-      <header className="border-b border-border-default bg-[rgba(4,11,20,0.85)] backdrop-blur-[20px]">
+      <header className="border-b border-border-default bg-[rgba(5,5,8,0.85)] backdrop-blur-[20px]">
         <div className="mx-auto flex max-w-[var(--max-width)] items-center justify-between px-6 py-5">
           <Link href="/" className="text-xl font-extrabold tracking-[-0.5px]">
             Neuro<span className="gradient-text">Heart</span> AI
@@ -47,6 +52,32 @@ export default function LegalPage({
             <h1 className="mt-4 text-[clamp(34px,5vw,52px)] font-extrabold leading-[1.05] tracking-[-1px]">
               {title}
             </h1>
+
+            <div className="mt-6 grid gap-3 rounded-[var(--radius-md)] border border-border-default bg-white/[0.03] p-5 text-sm text-text-secondary sm:grid-cols-3">
+              <div>
+                <p className="font-semibold text-text-primary">Company</p>
+                <p className="mt-1">{company}</p>
+              </div>
+              <div>
+                <p className="font-semibold text-text-primary">Website</p>
+                <a
+                  href={website}
+                  className="mt-1 inline-block underline decoration-border-glow underline-offset-4"
+                >
+                  {website}
+                </a>
+              </div>
+              <div>
+                <p className="font-semibold text-text-primary">Contact</p>
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="mt-1 inline-block underline decoration-border-glow underline-offset-4"
+                >
+                  {contactEmail}
+                </a>
+              </div>
+            </div>
+
             <div className="mt-6 space-y-4 text-[15px] leading-7 text-text-secondary">
               {intro.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -99,8 +130,6 @@ export default function LegalPage({
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

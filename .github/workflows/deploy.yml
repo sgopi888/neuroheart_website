@@ -31,8 +31,5 @@ jobs:
           ssh -o BatchMode=yes -o StrictHostKeyChecking=yes "$DEPLOY_USER@$DEPLOY_HOST" 'bash -se' <<'REMOTE'
           cd /var/www/neuroheart.ai
           git pull --ff-only origin main
-          npm ci
-          npm run build
-          pm2 restart neuroheart --update-env
-          curl --fail --silent --output /dev/null http://localhost:3000/gallery
+          npm run deploy
           REMOTE

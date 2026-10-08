@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "predev": "node scripts/build-gallery.mjs",
-    "prebuild": "node scripts/build-gallery.mjs"
+    "prebuild": "node scripts/build-gallery.mjs",
+    "push": "node scripts/release.mjs push",
+    "deploy": "node scripts/release.mjs deploy"
   },
   "dependencies": {
     "framer-motion": "^12.34.5",

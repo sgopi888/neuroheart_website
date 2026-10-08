@@ -2,21 +2,22 @@
 
 /* ========== NEUROHEART DESIGN TOKENS ========== */
 :root {
-  --bg-primary: #050508;
-  --bg-secondary: #0a0a10;
-  --bg-card: #0f0f18;
-  --bg-card-hover: #14142a;
-  --border-color: rgba(255, 255, 255, 0.06);
-  --border-glow: rgba(139, 92, 246, 0.25);
-  --text-primary: #f0f0f5;
-  --text-secondary: rgba(240, 240, 245, 0.6);
-  --text-muted: rgba(240, 240, 245, 0.35);
-  --accent: #8b5cf6;
-  --accent-light: #a78bfa;
-  --accent-glow: rgba(139, 92, 246, 0.4);
-  --accent-pink: #ec4899;
-  --accent-pink-glow: rgba(236, 72, 153, 0.35);
-  --success: #34d399;
+  --bg-void: #040b14;
+  --bg-primary: #081220;
+  --bg-secondary: #040b14;
+  --bg-card: #0e1e2e;
+  --bg-card-hover: #153044;
+  --border-color: #142c3c;
+  --border-glow: rgba(0, 221, 200, 0.25);
+  --text-primary: #e6f6fa;
+  --text-secondary: #6ea0b4;
+  --text-muted: #365a6c;
+  --accent: #00ddc8;
+  --accent-light: #00e8ff;
+  --accent-glow: rgba(0, 221, 200, 0.4);
+  --accent-pink: #10b87a;
+  --accent-pink-glow: rgba(16, 184, 122, 0.35);
+  --success: #2aebc2;
   --danger: #f87171;
   --radius-sm: 8px;
   --radius-md: 14px;

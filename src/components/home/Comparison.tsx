@@ -100,7 +100,7 @@ export default function Comparison() {
                       <div
                         className={`mx-auto flex flex-col items-center gap-2 rounded-t-[var(--radius-lg)] px-3 pb-4 pt-5 ${
                           c.highlight
-                            ? "border border-b-0 border-accent bg-accent/[0.06] shadow-[0_0_30px_rgba(139,92,246,0.1)]"
+                            ? "border border-b-0 border-accent bg-accent/[0.06] shadow-[0_0_30px_rgba(0,221,200,0.1)]"
                             : "border border-b-0 border-border-default bg-bg-card"
                         }`}
                       >

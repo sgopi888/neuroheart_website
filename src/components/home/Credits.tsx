@@ -93,7 +93,7 @@ export default function Pricing() {
               <div
                 className={`group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border p-8 transition-all duration-300 hover:-translate-y-1 ${
                   tier.highlighted
-                    ? "border-accent/40 bg-accent/[0.06] shadow-[0_0_40px_rgba(139,92,246,0.12)]"
+                    ? "border-accent/40 bg-accent/[0.06] shadow-[0_0_40px_rgba(0,221,200,0.12)]"
                     : "border-border-default bg-bg-card hover:border-border-glow hover:bg-bg-card-hover"
                 }`}
               >

@@ -79,6 +79,39 @@ curl -I https://neuroheart.ai/founder/music
 
 ## Photo Gallery
 
+### Quick developer commands
+
+From the local repository, publish all current changes (including additions,
+edits, and deletions):
+
+```bash
+npm run push -- "Update website and gallery"
+```
+
+This stages all non-ignored repository changes, commits with your message, and
+pushes `main`. Without a message it uses `Update NeuroHeart website`. If there
+are no new changes, it still pushes existing commits, so rerunning it after
+fixing GitHub authentication is safe. Review `git status` first if you have
+unfinished changes you do not want to publish.
+
+On the existing production server, from `/var/www/neuroheart.ai`:
+
+```bash
+npm run deploy
+```
+
+This checks for a clean checkout, pulls `main` with `--ff-only`, installs locked
+dependencies, builds (including the gallery), restarts the `neuroheart` PM2
+process, and checks `/gallery` on localhost port 3000. Both commands require
+the `main` branch and stop on the first failure. Server changes are never
+automatically discarded or stashed. A failed build prevents the PM2 restart.
+
+For the first deployment of these commands, pull them onto the server first:
+
+```bash
+cd /var/www/neuroheart.ai && git pull --ff-only origin main && npm run deploy
+```
+
 The gallery is served at `/gallery`. Add JPG, JPEG, PNG, WebP, or AVIF photos to
 `gallery/` in this repository. `npm run dev` and `npm run build` automatically
 generate optimized, auto-oriented WebP images and the photo list. Generated

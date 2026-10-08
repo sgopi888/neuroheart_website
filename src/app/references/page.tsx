@@ -81,7 +81,7 @@ export default function ReferencesPage() {
   return (
     <div className="min-h-screen bg-bg-primary text-text-primary">
       {/* Header */}
-      <header className="border-b border-border-default bg-[rgba(5,5,8,0.85)] backdrop-blur-[20px]">
+      <header className="border-b border-border-default bg-[rgba(4,11,20,0.85)] backdrop-blur-[20px]">
         <div className="mx-auto flex max-w-[var(--max-width)] items-center justify-between px-6 py-5">
           <Link href="/" className="text-xl font-extrabold tracking-[-0.5px]">
             Neuro<span className="gradient-text">Heart</span> AI
