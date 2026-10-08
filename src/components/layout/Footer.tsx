@@ -14,6 +14,9 @@ export default function Footer() {
 
         {/* Links */}
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <Link href="/gallery" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
+            Gallery
+          </Link>
           <Link href="/user-guide" className="text-[13px] text-text-muted transition-colors duration-300 hover:text-text-primary">
             User Guide
           </Link>

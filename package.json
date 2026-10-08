@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "predev": "node scripts/build-gallery.mjs",
+    "prebuild": "node scripts/build-gallery.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.34.5",
@@ -15,7 +17,8 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.71.2",
-    "resend": "^6.9.3"
+    "resend": "^6.9.3",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
