@@ -27,11 +27,24 @@ npm run start
 
 ## Commit and Push Changes
 
-```bash 
-git add .
-git commit -m "chore: Update pricing to free daily credits system"
-git push
+On your Mac, after editing the website or updating gallery photos:
+
+```bash
+cd /Users/sreekanthgopi/Desktop/Website/neuroheart-website && npm run push -- "Update website and photos"
 ```
+
+This commits all non-ignored repository changes and pushes `main`. Review
+`git status` first if you have unfinished changes.
+
+After logging into the server yourself:
+
+```bash
+cd /var/www/neuroheart.ai && npm run deploy
+```
+
+This pulls, installs dependencies, builds, restarts PM2, and checks the gallery.
+See [Push and deploy commands](gallery/push_commands.md) for first-time setup
+and recovery when server changes block a pull.
 
 ## Project Structure
 
@@ -111,6 +124,21 @@ For the first deployment of these commands, pull them onto the server first:
 ```bash
 cd /var/www/neuroheart.ai && git pull --ff-only origin main && npm run deploy
 ```
+
+If tracked edits or untracked files on the server block the pull, save them
+before deploying. Run this while logged into the server:
+
+```bash
+cd /var/www/neuroheart.ai &&
+git stash push --include-untracked -m "Server changes before deployment" &&
+git pull --ff-only origin main &&
+npm run deploy
+```
+
+The changes remain saved in the stash; leave it unapplied until reviewed.
+Inspect them with `git stash list` and
+`git stash show --include-untracked -p 'stash@{0}'`. Ignored files such as
+`.env` files are not included in the stash.
 
 The gallery is served at `/gallery`. Add JPG, JPEG, PNG, WebP, or AVIF photos to
 `gallery/` in this repository. `npm run dev` and `npm run build` automatically

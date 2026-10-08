@@ -36,6 +36,7 @@ yarn-error.log*
 # local markdown notes
 *.md
 !README.md
+!gallery/push_commands.md
 
 # vercel
 .vercel
