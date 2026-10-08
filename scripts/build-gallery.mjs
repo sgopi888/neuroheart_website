@@ -2,7 +2,19 @@ import { readdir, readFile, mkdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import sharp from 'sharp';
+import { imageSize } from 'image-size';
+
+// Some VPS CPUs cannot run Sharp's prebuilt Linux binary. Keep publishing
+// functional there using browser-supported originals and JS-only dimensions.
+let sharp;
+if (process.env.GALLERY_ORIGINAL_IMAGES !== '1') {
+  try {
+    sharp = (await import('sharp')).default;
+  } catch (error) {
+    console.warn(`Gallery: Sharp is unavailable (${error.message.split('\n')[0]}).`);
+  }
+}
+if (!sharp) console.warn('Gallery: publishing original images without resizing or metadata removal.');
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const input = path.join(root, 'gallery');
@@ -22,9 +34,22 @@ for (const filename of files) {
   const stem = path.parse(filename).name;
   const match = stem.match(/^(\d{4}(?:-\d{2}(?:-\d{2})?)?)\s+-\s+(.+)$/);
   const title = (match?.[2] ?? stem).replace(/[_]+/g, ' ').trim();
-  const info = await sharp(buffer).rotate().resize({ width: 2000, height: 2000, fit: 'inside', withoutEnlargement: true }).webp({ quality: 85 }).toFile(path.join(output, `${id}.webp`));
-  await sharp(buffer).rotate().resize({ width: 800, height: 1000, fit: 'inside', withoutEnlargement: true }).webp({ quality: 78 }).toFile(path.join(output, `${id}-thumb.webp`));
-  photos.push({ id, title, date: match?.[1] ?? null, src: `/gallery-generated/${id}.webp`, thumbnail: `/gallery-generated/${id}-thumb.webp`, width: info.width, height: info.height });
+  let src, thumbnail, width, height;
+  if (sharp) {
+    const info = await sharp(buffer).rotate().resize({ width: 2000, height: 2000, fit: 'inside', withoutEnlargement: true }).webp({ quality: 85 }).toFile(path.join(output, `${id}.webp`));
+    await sharp(buffer).rotate().resize({ width: 800, height: 1000, fit: 'inside', withoutEnlargement: true }).webp({ quality: 78 }).toFile(path.join(output, `${id}-thumb.webp`));
+    src = `/gallery-generated/${id}.webp`;
+    thumbnail = `/gallery-generated/${id}-thumb.webp`;
+    ({ width, height } = info);
+  } else {
+    const dimensions = imageSize(buffer);
+    ({ width, height } = dimensions);
+    if (dimensions.orientation >= 5 && dimensions.orientation <= 8) [width, height] = [height, width];
+    const name = `${id}${path.extname(filename).toLowerCase()}`;
+    await writeFile(path.join(output, name), buffer);
+    src = thumbnail = `/gallery-generated/${name}`;
+  }
+  photos.push({ id, title, date: match?.[1] ?? null, src, thumbnail, width, height });
 }
 photos.sort((a, b) => (b.date ?? '').localeCompare(a.date ?? '') || a.title.localeCompare(b.title));
 await writeFile(path.join(output, 'manifest.json'), JSON.stringify(photos, null, 2));

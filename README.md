@@ -83,7 +83,12 @@ The gallery is served at `/gallery`. Add JPG, JPEG, PNG, WebP, or AVIF photos to
 `gallery/` in this repository. `npm run dev` and `npm run build` automatically
 generate optimized, auto-oriented WebP images and the photo list. Generated
 files in `public/gallery-generated/` are ignored by git. EXIF metadata is removed
-from published images; the original photos remain in the repository.
+from published images when Sharp is available; the original photos remain in
+the repository. On servers whose CPU cannot load Sharp, generation automatically
+falls back to original images using a JavaScript dimension reader. This keeps
+deployment working, but images retain their metadata and original file sizes.
+Export appropriately sized, metadata-free photos before adding them on such
+servers. Set `GALLERY_ORIGINAL_IMAGES=1` to explicitly use this compatibility mode.
 
 Filenames become captions: `Formal Gala Award Presentation.png` works as-is.
 Optionally use `2026-10 - Award Receiving.jpg` for a date and caption. Dated
